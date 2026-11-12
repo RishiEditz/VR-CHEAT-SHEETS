@@ -1,6 +1,6 @@
 # VR Cheat Sheets
 
-Interactive cheat sheets you can search, copy commands from and test yourself on. Each sheet is a plain HTML page that works on phones, tablets, laptops and big screens.
+Interactive cheat sheets you can scroll through, copy commands from and test yourself on. Each sheet is a plain HTML page that works on phones, tablets, laptops and big screens.
 
 ## Sheets
 
@@ -10,9 +10,9 @@ Interactive cheat sheets you can search, copy commands from and test yourself on
 
 Each sheet has:
 
-- tabs for each topic and a search box
+- five pages that scroll one after another, no tabs
 - tap or click a command to copy it
-- a 10-question quiz with a score
+- a 15-question quiz in random order, with a score out of 15 and a share-result button
 - light and dark mode
 - five printable PNG pages to download
 
@@ -29,4 +29,4 @@ git/            the Git cheat sheet (index.html, style.css, script.js, page1-5.p
 
 New sheets go in their own folder, for example `sql/`, and get a card on the landing page.
 
-By Rakshith Volam / VR.
+By Rakshith Volam / VR Developments.

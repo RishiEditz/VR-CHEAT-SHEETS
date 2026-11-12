@@ -1,217 +1,306 @@
 (function () {
   'use strict';
 
-  var KEY_TAB = 'gitcheat-tab';
   var KEY_THEME = 'gitcheat-theme';
+  var SHARE_URL = 'https://rishieditz.github.io/VR-CHEAT-SHEETS/git/';
   var root = document.documentElement;
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
-  var search = document.getElementById('search');
-  var themeBtn = document.getElementById('theme');
   var toast = document.getElementById('toast');
-  var current = 0;
   var toastTimer = null;
 
   function store(key) {
     try { return window.localStorage.getItem(key); } catch (err) { return null; }
   }
-
   function save(key, value) {
     try { window.localStorage.setItem(key, value); } catch (err) { /* storage blocked: ignore */ }
   }
 
-  // ---- tabs -------------------------------------------------------------
-  function showTab(i, focus) {
-    if (i < 0 || i >= tabs.length) i = 0;
-    current = i;
-    tabs.forEach(function (t, k) {
-      var on = k === i;
-      t.setAttribute('aria-selected', on ? 'true' : 'false');
-      t.tabIndex = on ? 0 : -1;
-    });
-    if (!search.value.trim()) {
-      panels.forEach(function (p, k) { p.hidden = k !== i; });
-    }
-    save(KEY_TAB, String(i));
-    if (focus) tabs[i].focus();
-    var bar = tabs[i].parentNode;
-    if (bar.scrollWidth > bar.clientWidth) {
-      bar.scrollLeft = tabs[i].offsetLeft - (bar.clientWidth - tabs[i].offsetWidth) / 2;
-    }
-  }
-
-  tabs.forEach(function (t, k) {
-    t.addEventListener('click', function () {
-      if (search.value) { search.value = ''; applySearch(); }
-      showTab(k, false);
-    });
-    t.addEventListener('keydown', function (ev) {
-      if (ev.key === 'ArrowRight' || ev.key === 'ArrowLeft') {
-        var next = (k + (ev.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
-        showTab(next, true);
-        ev.preventDefault();
-      }
-    });
-  });
-
-  // ---- search -----------------------------------------------------------
-  function applySearch() {
-    var q = search.value.trim().toLowerCase();
-    if (!q) {
-      showTab(current, false);
-      panels.forEach(function (p) {
-        p.querySelectorAll('.card').forEach(function (c) { c.hidden = false; });
-        p.querySelector('.none').hidden = true;
-      });
-      return;
-    }
-    panels.forEach(function (p) {
-      var hits = 0;
-      p.querySelectorAll('.card').forEach(function (c) {
-        var match = c.getAttribute('data-search').indexOf(q) !== -1;
-        c.hidden = !match;
-        if (match) hits++;
-      });
-      p.hidden = hits === 0;
-      p.querySelector('.none').hidden = true;
-    });
-    var any = panels.some(function (p) { return !p.hidden; });
-    var notice = document.getElementById('no-results');
-    if (!any) {
-      if (!notice) {
-        notice = document.createElement('p');
-        notice.id = 'no-results';
-        notice.className = 'none';
-        document.getElementById('main').appendChild(notice);
-      }
-      notice.textContent = 'No commands match "' + search.value.trim() + '".';
-      notice.hidden = false;
-    } else if (notice) {
-      notice.hidden = true;
-    }
-  }
-
-  search.addEventListener('input', applySearch);
-
-  // ---- copy -------------------------------------------------------------
-  function fallbackCopy(text) {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    var ok = false;
-    try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
-    document.body.removeChild(ta);
-    return ok;
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 1800);
   }
 
   function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
-      return navigator.clipboard.writeText(text).then(function () { return true; }, function () {
-        return fallbackCopy(text);
-      });
+      return navigator.clipboard.writeText(text).catch(function () { return legacyCopy(text); });
     }
-    return Promise.resolve(fallbackCopy(text));
+    return legacyCopy(text);
   }
-
-  function showToast(msg) {
-    toast.textContent = msg;
-    toast.hidden = false;
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { toast.hidden = true; }, 1600);
-  }
-
-  document.querySelectorAll('.card').forEach(function (card) {
-    card.addEventListener('click', function () {
-      var cmd = card.getAttribute('data-cmd');
-      copyText(cmd).then(function (ok) {
-        showToast(ok ? 'Copied: ' + cmd : 'Copy failed, select the command by hand');
-      });
+  function legacyCopy(text) {
+    return new Promise(function (resolve, reject) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.top = '0';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) resolve(); else reject(new Error('copy failed'));
     });
-  });
+  }
 
   // ---- theme ------------------------------------------------------------
-  function setTheme(name) {
-    root.setAttribute('data-theme', name);
-    themeBtn.textContent = name === 'light' ? 'Dark mode' : 'Light mode';
-    save(KEY_THEME, name);
+  var themeBtn = document.getElementById('theme');
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
   }
-
+  applyTheme(store(KEY_THEME) === 'light' ? 'light' : 'dark');
   themeBtn.addEventListener('click', function () {
-    setTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    save(KEY_THEME, next);
+  });
+
+  // ---- tap to copy ------------------------------------------------------
+  Array.prototype.forEach.call(document.querySelectorAll('.card'), function (card) {
+    var label = card.querySelector('.tap');
+    var timer = null;
+    card.addEventListener('click', function () {
+      var cmd = card.getAttribute('data-cmd');
+      copyText(cmd).then(function () {
+        card.classList.add('copied');
+        label.textContent = 'Copied';
+        showToast('Copied: ' + cmd);
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          card.classList.remove('copied');
+          label.textContent = 'Tap to copy';
+        }, 1600);
+      }, function () {
+        showToast('Could not copy. Select the text and copy it by hand.');
+      });
+    });
   });
 
   // ---- quiz -------------------------------------------------------------
-  var questions = Array.prototype.slice.call(document.querySelectorAll('.q'));
-  var scoreEl = document.getElementById('score');
-  var resetBtn = document.getElementById('reset');
+  // The first option of every question is the correct one; options are shuffled on every attempt.
+  var BANK = [
+    { q: 'Which command turns the current folder into a Git project?', a: ['git init', 'git start', 'git new', 'git make'],
+      why: 'git init creates the hidden .git folder that tracks the project.' },
+    { q: 'Which command stages all changes in the current folder?', a: ['git add .', 'git commit .', 'git push .', 'git save .'],
+      why: 'git add . stages everything in this folder for the next commit.' },
+    { q: 'Which command creates a new branch and switches to it?', a: ['git switch -c <name>', 'git branch -s <name>', 'git merge -c <name>', 'git new <name>'],
+      why: 'The -c flag of git switch creates the branch and moves you onto it.' },
+    { q: 'Which command sets unfinished changes aside so you can switch branches?', a: ['git stash', 'git tag', 'git pull', 'git clean'],
+      why: 'git stash saves your changes. git stash pop brings them back.' },
+    { q: 'Which command downloads remote changes without merging them?', a: ['git fetch', 'git pull', 'git push', 'git clone'],
+      why: 'git fetch updates your copy of the remote. Your files stay as they are.' },
+    { q: 'Which command undoes an old commit by adding a NEW commit?', a: ['git revert <commit>', 'git reset --hard', 'git clean -fd', 'git amend'],
+      why: 'git revert is safe for shared history because it never rewrites past commits.' },
+    { q: 'Which command lists recent positions of HEAD, so you can recover lost commits?', a: ['git reflog', 'git blame <file>', 'git bisect start', 'git remote -v'],
+      why: 'The reflog remembers where HEAD has been, even after a reset.' },
+    { q: 'Which command shows who last changed each line of a file?', a: ['git blame <file>', 'git tag', 'git diff --staged', 'git stash'],
+      why: 'git blame shows the author and commit for every line.' },
+    { q: 'What is a .gitignore file for?', a: ['Listing files Git should not track', 'Hiding your commit messages', 'Speeding up git push', 'Storing your password'],
+      why: 'Files listed in .gitignore, like node_modules/, stay out of your commits.' },
+    { q: 'Which command makes "git st" run "git status"?', a: ['git config --global alias.st status', 'git alias st', 'git shortcut st', 'git init --alias'],
+      why: 'Aliases are set with git config, here under the alias.st key.' },
+    { q: 'What does git clone <repo> do?', a: ['Copies an existing project, with its full history, to your computer', 'Creates an empty project in the current folder', 'Uploads your commits to the remote', 'Merges two branches'],
+      why: 'Clone downloads the whole project and its history, so you can start working.' },
+    { q: 'What happens with git reset --soft HEAD~1?', a: ['The last commit is undone and its changes stay staged', 'The last commit and all its changes are deleted', 'The last commit is uploaded again', 'A new branch is created'],
+      why: '--soft keeps your changes. --hard is the one that would delete them.' },
+    { q: 'In git push -u origin <branch>, what does the -u flag do?', a: ['Links the branch, so next time git push is enough', 'Undoes the push', 'Uploads your tags as well', 'Deletes the remote branch'],
+      why: '-u sets the remote branch to track, so plain git push works afterwards.' },
+    { q: 'What is git commit --amend used for?', a: ['Changing the last commit, for example to fix its message', 'Deleting all untracked files', 'Downloading new changes from the remote', 'Creating a release tag'],
+      why: 'Amend rewrites the last commit: fix the message or add a file you forgot.' },
+    { q: 'What does git bisect help you find?', a: ['The commit that broke something', 'The person who wrote a line', 'The newest remote branch', 'The files Git ignores'],
+      why: 'You mark steps good or bad, and bisect narrows history down to the culprit.' }
+  ];
+  var TOTAL = BANK.length;
+  var box = document.getElementById('quiz-box');
+  var run = null;
+  var lastOrder = '';
 
-  function updateScore() {
-    var answered = 0, right = 0;
-    questions.forEach(function (q) {
-      if (q.getAttribute('data-done') === '1') {
-        answered++;
-        if (q.getAttribute('data-right') === '1') right++;
-      }
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function newRun() {
+    var order, key, tries = 0;
+    do {
+      order = shuffle(BANK.map(function (_, i) { return i; }));
+      key = order.join(',');
+      tries++;
+    } while (key === lastOrder && tries < 10);
+    lastOrder = key;
+    run = {
+      idx: 0,
+      score: 0,
+      questions: order.map(function (n) {
+        var item = BANK[n];
+        return {
+          q: item.q,
+          why: item.why,
+          opts: shuffle(item.a.map(function (text, k) { return { text: text, ok: k === 0 }; }))
+        };
+      })
+    };
+  }
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined) n.textContent = text;
+    return n;
+  }
+
+  function showStart() {
+    box.textContent = '';
+    var wrap = el('div', 'quiz-intro');
+    wrap.appendChild(el('p', 'intro', TOTAL + ' questions on the five pages above. The order and the answers are shuffled every time you play.'));
+    var go = el('button', 'primary', 'Start the quiz');
+    go.type = 'button';
+    go.addEventListener('click', function () { newRun(); showQuestion(); });
+    wrap.appendChild(go);
+    box.appendChild(wrap);
+  }
+
+  function showQuestion() {
+    var item = run.questions[run.idx];
+    var answered = false;
+    box.textContent = '';
+
+    var row = el('div', 'progress-row');
+    row.appendChild(el('span', '', 'Question ' + (run.idx + 1) + ' of ' + TOTAL));
+    row.appendChild(el('span', '', 'Score ' + run.score));
+    box.appendChild(row);
+    var bar = el('div', 'bar');
+    bar.setAttribute('role', 'progressbar');
+    bar.setAttribute('aria-valuemin', '0');
+    bar.setAttribute('aria-valuemax', String(TOTAL));
+    bar.setAttribute('aria-valuenow', String(run.idx));
+    var fill = el('i');
+    fill.style.width = Math.round(run.idx / TOTAL * 100) + '%';
+    bar.appendChild(fill);
+    box.appendChild(bar);
+
+    var qt = el('h3', 'q-text', item.q);
+    qt.id = 'q-text';
+    qt.tabIndex = -1;
+    box.appendChild(qt);
+
+    var opts = el('div', 'opts');
+    opts.setAttribute('role', 'group');
+    opts.setAttribute('aria-labelledby', 'q-text');
+    var why = el('p', 'why');
+    why.hidden = true;
+    var actions = el('div', 'q-actions');
+    actions.hidden = true;
+    var next = el('button', 'primary', run.idx === TOTAL - 1 ? 'See my score' : 'Next question');
+    next.type = 'button';
+    next.addEventListener('click', function () {
+      run.idx++;
+      if (run.idx >= TOTAL) showResult(); else showQuestion();
     });
-    if (answered === 0) {
-      scoreEl.textContent = '';
-      resetBtn.hidden = true;
-    } else if (answered < questions.length) {
-      scoreEl.textContent = 'Score: ' + right + ' of ' + answered + ' so far';
-      resetBtn.hidden = false;
+    actions.appendChild(next);
+
+    var buttons = item.opts.map(function (o, k) {
+      var b = el('button', 'opt');
+      b.type = 'button';
+      b.appendChild(el('span', 'letter', 'ABCD'.charAt(k)));
+      b.appendChild(el('span', 'otext', o.text));
+      b.addEventListener('click', function () {
+        if (answered) return;
+        answered = true;
+        if (o.ok) run.score++;
+        buttons.forEach(function (bb, kk) {
+          bb.disabled = true;
+          if (item.opts[kk].ok) bb.classList.add('right');
+          else if (bb === b) bb.classList.add('wrong');
+          else bb.classList.add('dim');
+        });
+        var strong = el('strong', '', o.ok ? 'Correct. ' : 'Not quite. ');
+        why.textContent = '';
+        why.appendChild(strong);
+        why.appendChild(document.createTextNode(item.why));
+        why.hidden = false;
+        actions.hidden = false;
+        next.focus();
+      });
+      opts.appendChild(b);
+      return b;
+    });
+    box.appendChild(opts);
+    box.appendChild(why);
+    box.appendChild(actions);
+    if (run.idx > 0 && box.getBoundingClientRect().top < 0) box.scrollIntoView({ block: 'start' });
+  }
+
+  function resultMessage(s) {
+    if (s === TOTAL) return 'Perfect score! You know your Git.';
+    if (s >= 12) return 'Great job! Almost perfect.';
+    if (s >= 8) return 'Good effort. Look over the pages above and try again.';
+    return 'A solid start. Scroll back up, read the pages, then try again.';
+  }
+
+  function shareText(s) {
+    return 'I scored ' + s + '/' + TOTAL + ' on the Git Cheat Sheet quiz by VR Developments! Try it: ' + SHARE_URL;
+  }
+
+  function doShare(s) {
+    var text = shareText(s);
+    var fallback = function () {
+      copyText(text).then(function () { showToast('Copied! Now paste it anywhere to share.'); },
+        function () { showToast('Could not copy. Use the WhatsApp link instead.'); });
+    };
+    if (navigator.share) {
+      navigator.share({ title: 'Git Cheat Sheet quiz', text: text }).catch(function (err) {
+        if (err && err.name === 'AbortError') return;
+        fallback();
+      });
     } else {
-      scoreEl.textContent = 'Final score: ' + right + ' of ' + questions.length;
-      resetBtn.hidden = false;
+      fallback();
     }
   }
 
-  questions.forEach(function (q) {
-    var answer = parseInt(q.getAttribute('data-answer'), 10);
-    var why = q.querySelector('.why');
-    var opts = Array.prototype.slice.call(q.querySelectorAll('.opt'));
-    opts.forEach(function (btn, i) {
-      btn.addEventListener('click', function () {
-        if (q.getAttribute('data-done') === '1') return;
-        q.setAttribute('data-done', '1');
-        var ok = i === answer;
-        q.setAttribute('data-right', ok ? '1' : '0');
-        opts.forEach(function (b, k) {
-          b.disabled = true;
-          if (k === answer) b.classList.add('right');
-          else if (k === i) b.classList.add('wrong');
-        });
-        why.hidden = false;
-        why.textContent = (ok ? 'Correct. ' : 'Not quite. ') + why.getAttribute('data-text');
-        updateScore();
-      });
-    });
-    why.setAttribute('data-text', why.textContent);
-  });
+  function showResult() {
+    var s = run.score;
+    box.textContent = '';
+    var res = el('div', 'result');
+    var scoreEl = el('p', 'score', s + ' out of ' + TOTAL);
+    scoreEl.id = 'final-score';
+    scoreEl.tabIndex = -1;
+    res.appendChild(scoreEl);
+    res.appendChild(el('p', 'msg', resultMessage(s)));
 
-  resetBtn.addEventListener('click', function () {
-    questions.forEach(function (q) {
-      q.removeAttribute('data-done');
-      q.removeAttribute('data-right');
-      q.querySelectorAll('.opt').forEach(function (b) {
-        b.disabled = false;
-        b.classList.remove('right', 'wrong');
-      });
-      var why = q.querySelector('.why');
-      why.hidden = true;
-      why.textContent = '';
-      why.setAttribute('data-text', why.getAttribute('data-text') || '');
-    });
-    updateScore();
-  });
+    var acts = el('div', 'res-actions');
+    var again = el('button', 'ghost', 'Try again');
+    again.type = 'button';
+    again.id = 'retry';
+    again.addEventListener('click', function () { newRun(); showQuestion(); box.scrollIntoView({ block: 'start' }); });
+    acts.appendChild(again);
+    res.appendChild(acts);
 
-  // ---- start ------------------------------------------------------------
-  var savedTheme = store(KEY_THEME);
-  setTheme(savedTheme === 'light' ? 'light' : 'dark');
+    var share = el('div', 'share');
+    var sb = el('button', 'primary', 'Share my result');
+    sb.type = 'button';
+    sb.id = 'share';
+    sb.addEventListener('click', function () { doShare(s); });
+    var row = el('div', 'share-row');
+    row.appendChild(sb);
+    var wa = el('a', 'wa', 'Share on WhatsApp');
+    wa.id = 'wa-share';
+    wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText(s));
+    wa.target = '_blank';
+    wa.rel = 'noopener noreferrer';
+    row.appendChild(wa);
+    share.appendChild(row);
+    share.appendChild(el('p', 'share-note', 'Quiz by VR Developments'));
+    res.appendChild(share);
+    box.appendChild(res);
+    scoreEl.focus({ preventScroll: true });
+  }
 
-  var savedTab = parseInt(store(KEY_TAB), 10);
-  showTab(isNaN(savedTab) ? 0 : savedTab, false);
+  showStart();
 })();
