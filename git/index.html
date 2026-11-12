@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git Cheat Sheet</title>
+  <meta name="description" content="Everyday Git commands: setup, branching, remotes, undoing mistakes and reading history.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23f05032%27/%3E%3Cpath d=%27M32 12l20 20-20 20-20-20z%27 fill=%27%2309090c%27/%3E%3Ccircle cx=%2732%27 cy=%2732%27 r=%278%27 fill=%27%23fff%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>Git Cheat Sheet</h1>
+      <p class="sub">Cheat Sheet of the Day · Episode 1</p>
+    </div>
+    <div class="tools">
+      <input id="search" type="search" placeholder="Search commands" aria-label="Search commands" autocomplete="off">
+      <button id="theme" class="ghost" type="button" aria-label="Switch between light and dark theme">Light mode</button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+      <button class="tab" type="button" role="tab" id="tab-0" aria-controls="panel-0" data-index="0">Setup and basics</button>
+      <button class="tab" type="button" role="tab" id="tab-1" aria-controls="panel-1" data-index="1">Branching and merging</button>
+      <button class="tab" type="button" role="tab" id="tab-2" aria-controls="panel-2" data-index="2">Remote work</button>
+      <button class="tab" type="button" role="tab" id="tab-3" aria-controls="panel-3" data-index="3">Undoing things</button>
+      <button class="tab" type="button" role="tab" id="tab-4" aria-controls="panel-4" data-index="4">History, diff and tips</button>
+  </nav>
+
+  <main id="main">
+    <section class="panel" id="panel-0" role="tabpanel" aria-labelledby="tab-0" data-index="0">
+      <h2>Setup and basics</h2>
+      <div class="cards">
+        <button class="card" type="button" data-cmd="git config --global user.name &quot;Your Name&quot;" data-search="git config --global user.name &quot;your name&quot; sets the name on your commits. set your email the same way with user.email.">
+          <code class="cmdline">git config --global user.name &quot;Your Name&quot;</code>
+          <span class="desc">Sets the name on your commits. Set your email the same way with user.email.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git init" data-search="git init turns the current folder into a new git project.">
+          <code class="cmdline">git init</code>
+          <span class="desc">Turns the current folder into a new Git project.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git clone &lt;repo&gt;" data-search="git clone &lt;repo&gt; copies an existing project, with its full history, to your computer.">
+          <code class="cmdline">git clone &lt;repo&gt;</code>
+          <span class="desc">Copies an existing project, with its full history, to your computer.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git status" data-search="git status shows which files changed and what is ready to commit.">
+          <code class="cmdline">git status</code>
+          <span class="desc">Shows which files changed and what is ready to commit.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git add ." data-search="git add . stages your changes for the next commit. use git add &lt;file&gt; for one file.">
+          <code class="cmdline">git add .</code>
+          <span class="desc">Stages your changes for the next commit. Use git add &lt;file&gt; for one file.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git commit -m &quot;message&quot;" data-search="git commit -m &quot;message&quot; saves the staged changes as a snapshot with a short message.">
+          <code class="cmdline">git commit -m &quot;message&quot;</code>
+          <span class="desc">Saves the staged changes as a snapshot with a short message.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+      </div>
+      <p class="none" hidden>No commands match your search in this section.</p>
+    </section>
+    <section class="panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1" data-index="1" hidden>
+      <h2>Branching and merging</h2>
+      <div class="cards">
+        <button class="card" type="button" data-cmd="git branch" data-search="git branch lists your branches. add a name, as in git branch &lt;name&gt;, to create one.">
+          <code class="cmdline">git branch</code>
+          <span class="desc">Lists your branches. Add a name, as in git branch &lt;name&gt;, to create one.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git switch -c &lt;name&gt;" data-search="git switch -c &lt;name&gt; creates a new branch and switches to it.">
+          <code class="cmdline">git switch -c &lt;name&gt;</code>
+          <span class="desc">Creates a new branch and switches to it.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git switch &lt;name&gt;" data-search="git switch &lt;name&gt; moves you onto an existing branch.">
+          <code class="cmdline">git switch &lt;name&gt;</code>
+          <span class="desc">Moves you onto an existing branch.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git merge &lt;branch&gt;" data-search="git merge &lt;branch&gt; brings the changes from another branch into the one you are on.">
+          <code class="cmdline">git merge &lt;branch&gt;</code>
+          <span class="desc">Brings the changes from another branch into the one you are on.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git rebase &lt;branch&gt;" data-search="git rebase &lt;branch&gt; replays your commits on top of another branch for a straight history.">
+          <code class="cmdline">git rebase &lt;branch&gt;</code>
+          <span class="desc">Replays your commits on top of another branch for a straight history.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git stash" data-search="git stash sets unfinished changes aside. bring them back with git stash pop.">
+          <code class="cmdline">git stash</code>
+          <span class="desc">Sets unfinished changes aside. Bring them back with git stash pop.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+      </div>
+      <p class="none" hidden>No commands match your search in this section.</p>
+    </section>
+    <section class="panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" data-index="2" hidden>
+      <h2>Remote work</h2>
+      <div class="cards">
+        <button class="card" type="button" data-cmd="git remote -v" data-search="git remote -v lists the online copies linked to this project. link one with git remote add origin &lt;repo&gt;.">
+          <code class="cmdline">git remote -v</code>
+          <span class="desc">Lists the online copies linked to this project. Link one with git remote add origin &lt;repo&gt;.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git fetch" data-search="git fetch downloads new changes from the remote without touching your files.">
+          <code class="cmdline">git fetch</code>
+          <span class="desc">Downloads new changes from the remote without touching your files.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git pull" data-search="git pull fetches the remote changes and merges them into your current branch.">
+          <code class="cmdline">git pull</code>
+          <span class="desc">Fetches the remote changes and merges them into your current branch.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git push -u origin &lt;branch&gt;" data-search="git push -u origin &lt;branch&gt; uploads your commits. the -u flag links the branch, so next time git push is enough.">
+          <code class="cmdline">git push -u origin &lt;branch&gt;</code>
+          <span class="desc">Uploads your commits. The -u flag links the branch, so next time git push is enough.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git tag -a v1.0 -m &quot;First release&quot;" data-search="git tag -a v1.0 -m &quot;first release&quot; marks an important point in history, like a release.">
+          <code class="cmdline">git tag -a v1.0 -m &quot;First release&quot;</code>
+          <span class="desc">Marks an important point in history, like a release.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git push --tags" data-search="git push --tags uploads your tags to the remote.">
+          <code class="cmdline">git push --tags</code>
+          <span class="desc">Uploads your tags to the remote.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+      </div>
+      <p class="none" hidden>No commands match your search in this section.</p>
+    </section>
+    <section class="panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" data-index="3" hidden>
+      <h2>Undoing things</h2>
+      <div class="cards">
+        <button class="card" type="button" data-cmd="git restore &lt;file&gt;" data-search="git restore &lt;file&gt; throws away your unsaved edits in that file.">
+          <code class="cmdline">git restore &lt;file&gt;</code>
+          <span class="desc">Throws away your unsaved edits in that file.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git reset --soft HEAD~1" data-search="git reset --soft head~1 undoes the last commit and keeps its changes staged. --hard would delete them.">
+          <code class="cmdline">git reset --soft HEAD~1</code>
+          <span class="desc">Undoes the last commit and keeps its changes staged. --hard would delete them.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git revert &lt;commit&gt;" data-search="git revert &lt;commit&gt; adds a new commit that undoes an old one. safe for shared history.">
+          <code class="cmdline">git revert &lt;commit&gt;</code>
+          <span class="desc">Adds a new commit that undoes an old one. Safe for shared history.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git commit --amend" data-search="git commit --amend changes the last commit, to fix its message or add a file you forgot.">
+          <code class="cmdline">git commit --amend</code>
+          <span class="desc">Changes the last commit, to fix its message or add a file you forgot.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git reflog" data-search="git reflog lists the recent places head has been, so you can recover lost work.">
+          <code class="cmdline">git reflog</code>
+          <span class="desc">Lists the recent places HEAD has been, so you can recover lost work.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git clean -fd" data-search="git clean -fd deletes untracked files and folders. preview first with git clean -n.">
+          <code class="cmdline">git clean -fd</code>
+          <span class="desc">Deletes untracked files and folders. Preview first with git clean -n.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+      </div>
+      <p class="none" hidden>No commands match your search in this section.</p>
+    </section>
+    <section class="panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" data-index="4" hidden>
+      <h2>History, diff and tips</h2>
+      <div class="cards">
+        <button class="card" type="button" data-cmd="git log --oneline --graph" data-search="git log --oneline --graph shows history as one line per commit, with the branch lines.">
+          <code class="cmdline">git log --oneline --graph</code>
+          <span class="desc">Shows history as one line per commit, with the branch lines.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git diff" data-search="git diff shows the exact line changes not yet staged. add --staged to see staged ones.">
+          <code class="cmdline">git diff</code>
+          <span class="desc">Shows the exact line changes not yet staged. Add --staged to see staged ones.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git blame &lt;file&gt;" data-search="git blame &lt;file&gt; shows who last changed each line, and in which commit.">
+          <code class="cmdline">git blame &lt;file&gt;</code>
+          <span class="desc">Shows who last changed each line, and in which commit.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git bisect start" data-search="git bisect start searches history for the commit that broke things. mark steps good or bad until it finds it.">
+          <code class="cmdline">git bisect start</code>
+          <span class="desc">Searches history for the commit that broke things. Mark steps good or bad until it finds it.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd="git config --global alias.st status" data-search="git config --global alias.st status creates a shortcut, so git st runs git status.">
+          <code class="cmdline">git config --global alias.st status</code>
+          <span class="desc">Creates a shortcut, so git st runs git status.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+        <button class="card" type="button" data-cmd=".gitignore" data-search=".gitignore a file that lists files and folders git should skip, like node_modules/.">
+          <code class="cmdline">.gitignore</code>
+          <span class="desc">A file that lists files and folders Git should skip, like node_modules/.</span>
+          <span class="tap">Tap to copy</span>
+        </button>
+      </div>
+      <p class="none" hidden>No commands match your search in this section.</p>
+    </section>
+  </main>
+
+  <section class="quiz" aria-labelledby="quiz-title">
+    <h2 id="quiz-title">Quick quiz</h2>
+    <p class="intro">Ten questions on the commands above. Pick an answer to see if you were right.</p>
+      <fieldset class="q" data-answer="1">
+        <legend>1. Which command turns the current folder into a Git project?</legend>
+        <div class="opts">
+          <button class="opt" type="button" data-i="0">git start</button>
+          <button class="opt" type="button" data-i="1">git init</button>
+          <button class="opt" type="button" data-i="2">git new</button>
+          <button class="opt" type="button" data-i="3">git make</button>
+        </div>
+        <p class="why" hidden>git init creates the hidden .git folder that tracks the project.</p>
+      </fieldset>
+      <fieldset class="q" data-answer="2">
+        <legend>2. Which command stages all changes in the current folder?</legend>
+        <div class="opts">
+          <button class="opt" type="button" data-i="0">git commit .</button>
+          <button class="opt" type="button" data-i="1">git push .</button>
+          <button class="opt" type="button" data-i="2">git add .</button>
+          <button class="opt" type="button" data-i="3">git save .</button>
+        </div>
+        <p class="why" hidden>git add . stages everything in this folder for the next commit.</p>
+      </fieldset>
+      <fieldset class="q" data-answer="0">
+        <legend>3. Which command creates a new branch and switches to it?</legend>
+        <div class="opts">
+          <button class="opt" type="button" data-i="0">git switch -c &lt;name&gt;</button>
+          <button class="opt" type="button" data-i="1">git branch -s &lt;name&gt;</button>
+          <button class="opt" type="button" data-i="2">git merge -c &lt;name&gt;</button>
+          <button class="opt" type="button" data-i="3">git new &lt;name&gt;</button>
+        </div>
+        <p class="why" hidden>The -c flag of git switch creates the branch and moves you onto it.</p>
+      </fieldset>
+      <fieldset class="q" data-answer="0">
+        <legend>4. Which command sets unfinished changes aside so you can switch branches?</legend>
+        <div class="opts">
+          <button class="opt" type="button" data-i="0">git stash</button>
+          <button class="opt" type="button" data-i="1">git tag</button>
+          <button class="opt" type="button" data-i="2">git pull</button>
+          <button class="opt" type="button" data-i="3">git clean</button>
+        </div>
+        <p class="why" hidden>git stash saves your changes. git stash pop brings them back.</p>
+      </fieldset>
+      <fieldset class="q" data-answer="1">
+        <legend>5. Which command downloads remote changes without merging them?</legend>
+        <div class="opts">
+          <button class="opt" type="button" data-i="0">git pull</button>
+          <button class="opt" type="button" data-i="1">git fetch</button>
+          <button class="opt" type="button" data-i="2">git push</button>
+          <button class="opt" type="button" data-i="3">git clone</button>
+        </div>
+        <p class="why" hidden>git fetch updates your copy of the remote. Your files stay as they are.</p>
+      </fieldset>
+      <fieldset class="q" data-answer="1">
+        <legend>6. Which command undoes an old commit by adding a NEW commit?</legend>
+        <div class="opts">
+          <button class="opt" type="button" data-i="0">git reset --hard</button>
+          <button class="opt" type="button" data-i="1">git revert</button>
+          <button class="opt" type="button" data-i="2">git clean -fd</button>
+          <button class="opt" type="button" data-i="3">git amend</button>
+        </div>
+        <p class="why" hidden>git revert is safe for shared history because it never rewrites past commits.</p>
+      </fieldset>
+      <fieldset class="q" data-answer="0">
+        <legend>7. Which command lists recent positions of HEAD, so you can recover lost commits?</legend>
+        <div class="opts">
+          <button class="opt" type="button" data-i="0">git reflog</button>
+          <button class="opt" type="button" data-i="1">git blame</button>
+          <button class="opt" type="button" data-i="2">git bisect</button>
+          <button class="opt" type="button" data-i="3">git remote -v</button>
+        </div>
+        <p class="why" hidden>The reflog remembers where HEAD has been, even after a reset.</p>
+      </fieldset>
+      <fieldset class="q" data-answer="1">
+        <legend>8. Which command shows who last changed each line of a file?</legend>
+        <div class="opts">
+          <button class="opt" type="button" data-i="0">git tag</button>
+          <button class="opt" type="button" data-i="1">git blame &lt;file&gt;</button>
+          <button class="opt" type="button" data-i="2">git diff --staged</button>
+          <button class="opt" type="button" data-i="3">git log --all</button>
+        </div>
+        <p class="why" hidden>git blame shows the author and commit for every line.</p>
+      </fieldset>
+      <fieldset class="q" data-answer="1">
+        <legend>9. What is a .gitignore file for?</legend>
+        <div class="opts">
+          <button class="opt" type="button" data-i="0">Hiding your commit messages</button>
+          <button class="opt" type="button" data-i="1">Listing files Git should not track</button>
+          <button class="opt" type="button" data-i="2">Speeding up git push</button>
+          <button class="opt" type="button" data-i="3">Storing your password</button>
+        </div>
+        <p class="why" hidden>Files listed in .gitignore, like node_modules/, stay out of your commits.</p>
+      </fieldset>
+      <fieldset class="q" data-answer="1">
+        <legend>10. Which command makes git st run git status?</legend>
+        <div class="opts">
+          <button class="opt" type="button" data-i="0">git alias st</button>
+          <button class="opt" type="button" data-i="1">git config --global alias.st status</button>
+          <button class="opt" type="button" data-i="2">git shortcut st</button>
+          <button class="opt" type="button" data-i="3">git init --alias</button>
+        </div>
+        <p class="why" hidden>Aliases are set with git config, here under the alias.st key.</p>
+      </fieldset>
+    <div class="result" aria-live="polite">
+      <p id="score"></p>
+      <button id="reset" class="ghost" type="button" hidden>Start over</button>
+    </div>
+  </section>
+
+  <section class="downloads" aria-labelledby="dl-title">
+    <h2 id="dl-title">Download page images</h2>
+    <p class="intro">Save the five printable pages as PNG files.</p>
+    <div class="dl-row">
+        <a class="dl" href="page1.png" download>Page 1</a>
+        <a class="dl" href="page2.png" download>Page 2</a>
+        <a class="dl" href="page3.png" download>Page 3</a>
+        <a class="dl" href="page4.png" download>Page 4</a>
+        <a class="dl" href="page5.png" download>Page 5</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Cheat Sheet of the Day by Rakshith Volam / VR</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden>Copied</div>
+  <script src="script.js"></script>
+</body>
+</html>

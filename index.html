@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VR Cheat Sheets</title>
+  <meta name="description" content="Free, interactive cheat sheets you can search, copy from and quiz yourself with.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23111%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-size=%2726%27 font-family=%27Arial%27 font-weight=%27700%27 text-anchor=%27middle%27 fill=%27%23fff%27%3EVR%3C/text%3E%3C/svg%3E">
+  <style>
+    :root { --bg:#09090c; --card:#18181f; --edge:#30303c; --text:#f6f6f8; --muted:#a2a2b0; --a:#f05032; --b:#ff8a58; }
+    * { box-sizing: border-box; }
+    html { font-size: 16px; }
+    body { margin: 0; min-height: 100vh; color: var(--text); background: radial-gradient(900px 600px at 85% -5%, rgba(240,80,50,.25), transparent 70%), radial-gradient(700px 500px at 0% 100%, rgba(120,90,255,.14), transparent 70%), var(--bg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; overflow-x: hidden; }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 56px 20px 40px; }
+    h1 { margin: 0; font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1.05; letter-spacing: -.02em; font-weight: 800;
+      background: linear-gradient(90deg, var(--a), var(--b)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { margin: 14px 0 0; color: var(--muted); font-size: clamp(1rem, 2.4vw, 1.2rem); max-width: 36em; }
+    h2 { margin: 48px 0 16px; font-size: 1.3rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 16px; }
+    .sheet { display: flex; flex-direction: column; gap: 8px; padding: 22px; min-height: 44px; border-radius: 20px; border: 1px solid var(--edge); background: var(--card);
+      color: var(--text); text-decoration: none; position: relative; box-shadow: 0 8px 24px rgba(0,0,0,.35); transition: transform .12s ease, border-color .12s ease; }
+    .sheet::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 4px; border-radius: 4px; background: linear-gradient(180deg, var(--a), var(--b)); }
+    .sheet:hover, .sheet:focus-visible { border-color: var(--b); transform: translateY(-2px); outline: none; }
+    .sheet .name { font-size: 1.35rem; font-weight: 800; padding-left: 8px; }
+    .sheet .what { color: var(--muted); padding-left: 8px; }
+    .sheet .go { margin-top: 6px; padding-left: 8px; font-weight: 700; color: var(--b); }
+    .more { margin-top: 18px; color: var(--muted); }
+    footer { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--edge); color: var(--muted); font-size: .92rem; }
+    @media (min-width: 1600px) { html { font-size: 18px; } .wrap { max-width: 1300px; } }
+    @media (min-width: 2400px) { html { font-size: 26px; } .wrap { max-width: 1900px; } }
+    @media (min-width: 3200px) { html { font-size: 32px; } .wrap { max-width: 2500px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>VR Cheat Sheets</h1>
+    <p class="lead">Short, clear cheat sheets you can search, tap to copy from, and test yourself on. Free and made to open on any screen.</p>
+
+    <h2>Available sheets</h2>
+    <div class="grid">
+      <a class="sheet" href="git/">
+        <span class="name">Git</span>
+        <span class="what">Setup, branches, remotes, undoing mistakes and reading history. Includes a quick quiz and printable pages.</span>
+        <span class="go">Open the Git cheat sheet &rarr;</span>
+      </a>
+    </div>
+    <p class="more">More sheets are on the way.</p>
+
+    <footer>VR Cheat Sheets by Rakshith Volam / VR</footer>
+  </main>
+</body>
+</html>
