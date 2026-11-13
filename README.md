@@ -7,6 +7,7 @@ Interactive cheat sheets you can scroll through, copy commands from and test you
 | Sheet | Live page |
 | --- | --- |
 | Git | https://rishieditz.github.io/VR-CHEAT-SHEETS/git/ |
+| SQL | https://rishieditz.github.io/VR-CHEAT-SHEETS/sql/ |
 
 Each sheet has:
 
@@ -25,8 +26,9 @@ No build step. Open `index.html` in a browser, or serve the folder with any stat
 ```
 index.html      landing page
 git/            the Git cheat sheet (index.html, style.css, script.js, page1-5.png)
+sql/            the SQL cheat sheet (index.html, style.css, script.js, page1-5.png)
 ```
 
-New sheets go in their own folder, for example `sql/`, and get a card on the landing page.
+New sheets go in their own folder, for example `regex/`, and get a card on the landing page.
 
 By Rakshith Volam / VR Developments.
