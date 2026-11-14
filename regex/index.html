@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regex Cheat Sheet by VR Developments</title>
+<meta name="description" content="Regex cheat sheet: 30 essential patterns on five pages, tap to copy, plus a 15-question quiz. By VR Developments.">
+<meta property="og:title" content="Regex Cheat Sheet by VR Developments">
+<meta property="og:description" content="30 essential regex patterns on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/regex/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">Regex Cheat Sheet</h1><span class="by">by VR Developments</span></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the regex patterns you use most, then a 15-question quiz. Tap any command to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Basics: anchors, dots and classes</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="^Hi"><code class="cmd">^Hi</code><span class="desc">^ matches the start of the text. ^Hi matches &quot;Hi there&quot; but not &quot;Oh Hi&quot;.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="c.t"><code class="cmd">c.t</code><span class="desc">A dot matches any one character except a new line. c.t matches cat, cot and c9t.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="\.pdf$"><code class="cmd">\.pdf$</code><span class="desc">\. is a plain dot, and $ matches the end. Matches file.pdf, not pdf.txt.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="\d{4}"><code class="cmd">\d{4}</code><span class="desc">\d matches one digit from 0 to 9. {4} repeats it four times, so this finds 2026.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="[^0-9]"><code class="cmd">[^0-9]</code><span class="desc">Square brackets match one character from the list. The ^ inside means not: this finds any non-digit.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="cat|dog"><code class="cmd">cat|dog</code><span class="desc">The bar | means or. This matches cat or dog, so use it to pick between words.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">Quantifiers: how many times</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="colou?r"><code class="cmd">colou?r</code><span class="desc">? means zero or one. The u is optional, so this matches color and colour.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="ab*c"><code class="cmd">ab*c</code><span class="desc">* means zero or more. Matches ac, abc and abbbbc.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="\w+"><code class="cmd">\w+</code><span class="desc">\w matches a letter, digit or underscore. + means one or more, so \w+ grabs a whole word.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="\d{2,4}"><code class="cmd">\d{2,4}</code><span class="desc">{2,4} means two to four times. Use {3} for exactly three, {2,} for two or more.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;.+?&gt;"><code class="cmd">&lt;.+?&gt;</code><span class="desc">The ? after + makes it lazy: it stops at the first &gt;. Without it, the match runs to the last &gt;.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="\bcat\b"><code class="cmd">\bcat\b</code><span class="desc">\b is a word boundary, the edge of a word. Matches cat in &quot;a cat sat&quot;, not in &quot;category&quot;.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Groups, backreferences and lookarounds</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="(ab)+"><code class="cmd">(ab)+</code><span class="desc">Round brackets make a group, so (ab)+ repeats the whole pair: ab, abab, ababab.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="(\d{4})-(\d{2})-(\d{2})"><code class="cmd">(\d{4})-(\d{2})-(\d{2})</code><span class="desc">Each group saves its match. Use $1, $2 and $3 in a replacement to reuse the year, month and day.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="(?:http|https)://"><code class="cmd">(?:http|https)://</code><span class="desc">(?:...) groups without saving the match. This matches http:// or https://, and keeps no saved copy.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="(\w)\1"><code class="cmd">(\w)\1</code><span class="desc">\1 means the same text as group 1, again. Finds doubled letters, like the ll in hello.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="\d+(?=px)"><code class="cmd">\d+(?=px)</code><span class="desc">(?=...) is a lookahead: it checks what comes next without including it. Matches 12 in 12px.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="(?&lt;=\$)\d+"><code class="cmd">(?&lt;=\$)\d+</code><span class="desc">(?&lt;=...) is a lookbehind: it checks what comes before. Matches 45 in $45, not the dollar sign.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Flags, search and replace</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="/cat/i"><code class="cmd">/cat/i</code><span class="desc">The i flag ignores upper and lower case, so Cat and CAT match too. Python: re.IGNORECASE.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="/^\w+$/m"><code class="cmd">/^\w+$/m</code><span class="desc">The m flag makes ^ and $ work on every line, not only the start and end of the whole text.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="/a.b/s"><code class="cmd">/a.b/s</code><span class="desc">The s flag lets the dot match a new line too. In Python, use the re.DOTALL flag.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="re.findall(r&quot;\d+&quot;, &quot;a1 b22&quot;)"><code class="cmd">re.findall(r&quot;\d+&quot;, &quot;a1 b22&quot;)</code><span class="desc">Returns every match as a list: [&#x27;1&#x27;, &#x27;22&#x27;]. Use it to pull out all the numbers.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="s.replace(/\s+/g, &quot; &quot;)"><code class="cmd">s.replace(/\s+/g, &quot; &quot;)</code><span class="desc">The g flag replaces every match, not just the first. This turns runs of spaces into one.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="re.sub(r&quot;(\w+) (\w+)&quot;, r&quot;\2 \1&quot;, &quot;hello world&quot;)"><code class="cmd">re.sub(r&quot;(\w+) (\w+)&quot;, r&quot;\2 \1&quot;, &quot;hello world&quot;)</code><span class="desc">Replaces each match with the groups swapped, giving &quot;world hello&quot;. In JavaScript, use $2 $1.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Common recipes</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="^[\w.+-]+@[\w-]+(\.[\w-]+)+$"><code class="cmd">^[\w.+-]+@[\w-]+(\.[\w-]+)+$</code><span class="desc">Checks a whole email: name, @, domain, then a dot and an ending like .com. Not the full email rules.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="^[6-9]\d{9}$"><code class="cmd">^[6-9]\d{9}$</code><span class="desc">A 10-digit Indian mobile number starting with 6, 7, 8 or 9. Remove spaces and +91 first.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$"><code class="cmd">^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$</code><span class="desc">A date as YYYY-MM-DD, like 2026-11-14. It checks the shape only, so 2026-02-30 still passes.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="#(?:[0-9a-fA-F]{3}){1,2}\b"><code class="cmd">#(?:[0-9a-fA-F]{3}){1,2}\b</code><span class="desc">A hex colour like #9B51E0 or #fff. The group repeats 3 digits once or twice.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="^(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$"><code class="cmd">^(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$</code><span class="desc">A strong password: 8+ characters, with an uppercase letter, a digit and a symbol. Each (?=...) checks one rule.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="https?://[^\s/]+"><code class="cmd">https?://[^\s/]+</code><span class="desc">Finds the start of a web address: http:// or https:// plus the domain, up to the next slash or space.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 3 · Regex · by VR Developments</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
