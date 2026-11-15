@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linux Cheat Sheet by VR Developments</title>
+<meta name="description" content="Linux cheat sheet: 30 essential commands on five pages, tap to copy, plus a 15-question quiz. By VR Developments.">
+<meta property="og:title" content="Linux Cheat Sheet by VR Developments">
+<meta property="og:description" content="30 essential Linux commands on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/linux/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">Linux Cheat Sheet</h1><span class="by">by VR Developments</span></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the Linux commands you use most, then a 15-question quiz. Tap any command to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Basics</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="ls"><code class="cmd">ls</code><span class="desc">Lists the files in the folder you are in. Add -la to see hidden files too.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="cd folder"><code class="cmd">cd folder</code><span class="desc">Moves you into a folder. cd alone takes you back to your home folder.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="cd .."><code class="cmd">cd ..</code><span class="desc">The two dots mean the folder above. This takes you up one level.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="pwd"><code class="cmd">pwd</code><span class="desc">Print working directory. Shows the full path of the folder you are in.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="grep text file"><code class="cmd">grep text file</code><span class="desc">Searches inside a file and prints each line that contains the text you type.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="chmod +x file"><code class="cmd">chmod +x file</code><span class="desc">Changes who can read, write or run a file. +x makes it runnable.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">Copy, move, remove</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="cp a b"><code class="cmd">cp a b</code><span class="desc">Copies file a to a new file called b. The original stays where it is.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="cp -r dir new"><code class="cmd">cp -r dir new</code><span class="desc">Copies a whole folder, including everything inside it. -r means recursive.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="mv a b"><code class="cmd">mv a b</code><span class="desc">Moves or renames a file. The same command does both jobs.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="rm file"><code class="cmd">rm file</code><span class="desc">Deletes a file for good. There is no trash, so check the name first.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="rm -r dir"><code class="cmd">rm -r dir</code><span class="desc">Deletes a folder and everything inside it. Use it with care.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="touch file"><code class="cmd">touch file</code><span class="desc">Creates an empty file, or updates the time stamp of an existing one.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Search</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="find . -name &quot;*.txt&quot;"><code class="cmd">find . -name &quot;*.txt&quot;</code><span class="desc">Finds every file under this folder whose name matches the pattern.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="grep -r text ."><code class="cmd">grep -r text .</code><span class="desc">Searches every file in this folder and all folders below it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="grep -i text file"><code class="cmd">grep -i text file</code><span class="desc">The -i flag ignores capitals, so Text and text both match.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="which python3"><code class="cmd">which python3</code><span class="desc">Shows the full path of the program that runs when you type its name.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="head -n 5 file"><code class="cmd">head -n 5 file</code><span class="desc">Shows the first five lines of a file. Use tail for the last lines.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="wc -l file"><code class="cmd">wc -l file</code><span class="desc">Counts the lines in a file. Useful for checking how long a log is.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Processes and disk</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="ps aux"><code class="cmd">ps aux</code><span class="desc">Lists every running process with its user, memory and command.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="top"><code class="cmd">top</code><span class="desc">A live view of what is using your CPU and memory. Press q to quit.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kill PID"><code class="cmd">kill PID</code><span class="desc">Stops a process. Use the number from ps or top as the PID.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="df -h"><code class="cmd">df -h</code><span class="desc">Shows free and used space on each disk. -h makes sizes readable.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="du -sh folder"><code class="cmd">du -sh folder</code><span class="desc">Shows how much space one folder takes up in total.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="free -h"><code class="cmd">free -h</code><span class="desc">Shows how much memory is used and how much is still free.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Permissions, pipes, redirects</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="chmod 755 file"><code class="cmd">chmod 755 file</code><span class="desc">Owner can read, write and run. Everyone else can read and run.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="sudo command"><code class="cmd">sudo command</code><span class="desc">Runs one command with administrator rights. It asks for your password.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="ls | grep txt"><code class="cmd">ls | grep txt</code><span class="desc">The pipe bar sends the output of the left command into the right one.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="echo hi &gt; file"><code class="cmd">echo hi &gt; file</code><span class="desc">The arrow saves the output into a file. It replaces what was there.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="echo hi &gt;&gt; file"><code class="cmd">echo hi &gt;&gt; file</code><span class="desc">Two arrows add the output to the end of the file instead.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="history"><code class="cmd">history</code><span class="desc">Lists the commands you typed earlier, so you can run them again.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 4 · Linux · by VR Developments</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>

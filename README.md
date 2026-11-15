@@ -9,6 +9,7 @@ Interactive cheat sheets you can scroll through, copy commands from and test you
 | Git | https://rishieditz.github.io/VR-CHEAT-SHEETS/git/ |
 | SQL | https://rishieditz.github.io/VR-CHEAT-SHEETS/sql/ |
 | Regex | https://rishieditz.github.io/VR-CHEAT-SHEETS/regex/ |
+| Linux | https://rishieditz.github.io/VR-CHEAT-SHEETS/linux/ |
 
 Each sheet has:
 
@@ -29,6 +30,7 @@ index.html      landing page
 git/            the Git cheat sheet (index.html, style.css, script.js, page1-5.png)
 sql/            the SQL cheat sheet (index.html, style.css, script.js, page1-5.png)
 regex/          the Regex cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
+linux/          the Linux cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 ```
 
 New sheets go in their own folder and get a card on the landing page.
