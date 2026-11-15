@@ -197,14 +197,31 @@
     return 'I scored ' + s + '/15 on the Linux Cheat Sheet quiz by VR Developments! Try it: ' + SHARE_URL;
   }
 
+  function showShareText(text) {
+    var old = document.getElementById('share-fallback');
+    if (old) old.parentNode.removeChild(old);
+    var box = el('div', 'share-fallback');
+    box.id = 'share-fallback';
+    box.appendChild(el('p', 'quiz-lead', 'Copying is blocked here. Select this text and copy it by hand:'));
+    var ta = el('textarea', 'share-text');
+    ta.readOnly = true;
+    ta.rows = 3;
+    ta.value = text;
+    ta.setAttribute('aria-label', 'Text to share');
+    box.appendChild(ta);
+    body.appendChild(box);
+    try { ta.focus(); ta.select(); ta.setSelectionRange(0, text.length); } catch (e) { /* user can select by hand */ }
+  }
+
   function shareResult(s) {
     var text = shareText(s);
-    if (navigator.share) {
-      navigator.share({ title: 'Linux Cheat Sheet quiz', text: text }).catch(function () { /* cancelled */ });
-      return;
-    }
     copyText(text).then(function (ok) {
-      toast(ok ? 'Copied to clipboard' : 'Clipboard is blocked here. Use Share on WhatsApp below.', 4000);
+      if (ok) {
+        toast('Copied', 2200);
+      } else {
+        toast('Copy blocked. Select the text below.', 4000);
+        showShareText(text);
+      }
     });
   }
 
