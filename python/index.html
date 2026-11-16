@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python Cheat Sheet by VR Developments</title>
+<meta name="description" content="Python cheat sheet: 30 essential commands on five pages, tap to copy, plus a 15-question quiz. By VR Developments.">
+<meta property="og:title" content="Python Cheat Sheet by VR Developments">
+<meta property="og:description" content="30 essential Python commands on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/python/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">Python Cheat Sheet</h1><span class="by">by VR Developments</span></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the Python commands you use most, then a 15-question quiz. Tap any command to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Basics</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="print(&quot;Hi&quot;)"><code class="cmd">print(&quot;Hi&quot;)</code><span class="desc">Shows text, or the value of a variable, on the screen. Each print starts a new line.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="x = 5"><code class="cmd">x = 5</code><span class="desc">Stores the value 5 in a variable called x. You never declare a type; Python works it out.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="name = input(&quot;Name? &quot;)"><code class="cmd">name = input(&quot;Name? &quot;)</code><span class="desc">Shows the question, waits for the user to type, then stores the answer. The answer is always text.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="type(x)"><code class="cmd">type(x)</code><span class="desc">Shows the type of a value, such as int for whole numbers or str for text.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="len(&quot;hello&quot;)"><code class="cmd">len(&quot;hello&quot;)</code><span class="desc">Counts the characters in a string, so this gives 5. It also counts the items in a list.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="# comment"><code class="cmd"># comment</code><span class="desc">Anything after a hash is a comment. Python skips it, so use it to explain your code.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">Lists and dicts</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="f&quot;Hi {name}&quot;"><code class="cmd">f&quot;Hi {name}&quot;</code><span class="desc">An f-string puts a variable inside the text. The f before the quotes makes it work.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="nums = [1, 2, 3]"><code class="cmd">nums = [1, 2, 3]</code><span class="desc">A list holds items in order. Lists can grow, shrink and change.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="nums.append(4)"><code class="cmd">nums.append(4)</code><span class="desc">Adds 4 to the end of the list. The list now holds 1, 2, 3 and 4.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="nums[0]"><code class="cmd">nums[0]</code><span class="desc">Gets the first item. Python counts from 0, so nums[-1] gets the last item.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="person = {&quot;name&quot;: &quot;Ana&quot;}"><code class="cmd">person = {&quot;name&quot;: &quot;Ana&quot;}</code><span class="desc">A dict stores pairs of key and value. Here name is the key and Ana is the value.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="person[&quot;name&quot;]"><code class="cmd">person[&quot;name&quot;]</code><span class="desc">Gets the value stored under the key name. A key that is not there raises a KeyError.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Decisions and loops</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="if x &gt; 3:"><code class="cmd">if x &gt; 3:</code><span class="desc">Runs the indented lines only when the condition is true. Indent with four spaces.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="elif x == 3:"><code class="cmd">elif x == 3:</code><span class="desc">Checks another condition when the earlier ones were false. Use else for anything left over.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="for n in nums:"><code class="cmd">for n in nums:</code><span class="desc">Runs the indented block once for each item in the list, with n holding that item.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="for i in range(5):"><code class="cmd">for i in range(5):</code><span class="desc">range(5) gives 0, 1, 2, 3 and 4, so the loop runs five times. It stops before 5.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="while x &lt; 10:"><code class="cmd">while x &lt; 10:</code><span class="desc">Keeps running while the condition stays true. Change x inside the loop, or it never stops.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="break"><code class="cmd">break</code><span class="desc">Leaves the loop straight away. Use it once you have found what you were looking for.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Functions and modules</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="def add(a, b):"><code class="cmd">def add(a, b):</code><span class="desc">Defines a function called add with two inputs. The indented lines below it form its body.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="return a + b"><code class="cmd">return a + b</code><span class="desc">Sends the result back to the caller. Without return, a function gives back None.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="lambda x: x * 2"><code class="cmd">lambda x: x * 2</code><span class="desc">A short unnamed function, here one that doubles x. Good for small one-line jobs.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="import math"><code class="cmd">import math</code><span class="desc">Loads the math module from the standard library. Use it as math.sqrt(9).</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="from math import sqrt"><code class="cmd">from math import sqrt</code><span class="desc">Brings in one name, so you can write sqrt(9) without math. in front.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="pip install requests"><code class="cmd">pip install requests</code><span class="desc">Installs a third-party package from the Python Package Index, called PyPI.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Files, errors and tools</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="with open(&quot;notes.txt&quot;) as f:"><code class="cmd">with open(&quot;notes.txt&quot;) as f:</code><span class="desc">Opens the file and closes it for you when the indented block ends.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="f.read()"><code class="cmd">f.read()</code><span class="desc">Reads the whole file into one string, while you are inside the with block.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="try: ... except ValueError:"><code class="cmd">try: ... except ValueError:</code><span class="desc">Runs the risky code in try. If a ValueError happens, except runs and the program keeps going.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="python3 -m venv .venv"><code class="cmd">python3 -m venv .venv</code><span class="desc">Creates a private folder of packages for one project, so your projects do not clash.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="python3 app.py"><code class="cmd">python3 app.py</code><span class="desc">Runs the Python file app.py from the terminal.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="[x * x for x in nums]"><code class="cmd">[x * x for x in nums]</code><span class="desc">A list comprehension builds a new list in one line. Here, every number is squared.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 5 · Python · by VR Developments</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
