@@ -11,6 +11,7 @@ Interactive cheat sheets you can scroll through, copy commands from and test you
 | Regex | https://rishieditz.github.io/VR-CHEAT-SHEETS/regex/ |
 | Linux | https://rishieditz.github.io/VR-CHEAT-SHEETS/linux/ |
 | Python | https://rishieditz.github.io/VR-CHEAT-SHEETS/python/ |
+| JavaScript | https://rishieditz.github.io/VR-CHEAT-SHEETS/javascript/ |
 
 Each sheet has:
 
@@ -33,6 +34,7 @@ sql/            the SQL cheat sheet (index.html, style.css, script.js, page1-5.p
 regex/          the Regex cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 linux/          the Linux cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 python/         the Python cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
+javascript/     the JavaScript cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 ```
 
 New sheets go in their own folder and get a card on the landing page.

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JavaScript Cheat Sheet by VR Developments</title>
+<meta name="description" content="JavaScript cheat sheet: 30 essential commands on five pages, tap to copy, plus a 15-question quiz. By VR Developments.">
+<meta property="og:title" content="JavaScript Cheat Sheet by VR Developments">
+<meta property="og:description" content="30 essential JavaScript commands on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/javascript/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">JavaScript Cheat Sheet</h1><span class="by">by VR Developments</span></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the JavaScript commands you use most, then a 15-question quiz. Tap any command to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Basics</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="console.log(&quot;Hi&quot;)"><code class="cmd">console.log(&quot;Hi&quot;)</code><span class="desc">Prints a message to the console. Your first tool for checking what your code does.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="let x = 5"><code class="cmd">let x = 5</code><span class="desc">Makes a variable whose value you can change later, for example x = 6.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const name = &quot;Ana&quot;"><code class="cmd">const name = &quot;Ana&quot;</code><span class="desc">Makes a variable that cannot be assigned again. Use const unless the value must change.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="typeof x"><code class="cmd">typeof x</code><span class="desc">Tells you the type of a value, such as number, string or boolean.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="`Hi ${name}`"><code class="cmd">`Hi ${name}`</code><span class="desc">A template string. Backticks let you put a variable inside text with a dollar sign and curly braces.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="// comment"><code class="cmd">// comment</code><span class="desc">Two slashes start a comment, so JavaScript skips the rest of that line.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">Arrays and objects</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="const nums = [1, 2, 3]"><code class="cmd">const nums = [1, 2, 3]</code><span class="desc">An array holds a list of values in order. The first item is number 0.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="nums.push(4)"><code class="cmd">nums.push(4)</code><span class="desc">Adds a value to the end of the array.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="nums.length"><code class="cmd">nums.length</code><span class="desc">The number of items in the array. It is a property, so there are no brackets.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="nums.at(-1)"><code class="cmd">nums.at(-1)</code><span class="desc">Gets the last item. A negative number counts from the end.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const person = { name: &quot;Ana&quot; }"><code class="cmd">const person = { name: &quot;Ana&quot; }</code><span class="desc">An object stores values under names, called keys. Each key has a value.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="person.name"><code class="cmd">person.name</code><span class="desc">Reads the value stored under the key name. person[&quot;name&quot;] does the same.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Decisions and loops</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="if (x &gt; 3) { }"><code class="cmd">if (x &gt; 3) { }</code><span class="desc">Runs the block only when the condition is true. Add else for the other case.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="x === 3"><code class="cmd">x === 3</code><span class="desc">Strict equal: true only when the value and the type both match. Prefer it over ==.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="x &gt; 1 &amp;&amp; x &lt; 9"><code class="cmd">x &gt; 1 &amp;&amp; x &lt; 9</code><span class="desc">&amp;&amp; means and, || means or, and ! means not. They join conditions together.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="for (let i = 0; i &lt; 5; i++) { }"><code class="cmd">for (let i = 0; i &lt; 5; i++) { }</code><span class="desc">Repeats the block five times, with i going from 0 to 4.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="for (const n of nums) { }"><code class="cmd">for (const n of nums) { }</code><span class="desc">Loops over an array and gives you one item at a time.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="while (x &lt; 10) { }"><code class="cmd">while (x &lt; 10) { }</code><span class="desc">Keeps running the block for as long as the condition stays true.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Functions</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="function add(a, b) { return a + b }"><code class="cmd">function add(a, b) { return a + b }</code><span class="desc">Defines a function. return sends a value back to whoever called it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const add = (a, b) =&gt; a + b"><code class="cmd">const add = (a, b) =&gt; a + b</code><span class="desc">An arrow function, a shorter way to write a function. The value after the arrow is returned.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="nums.map(n =&gt; n * 2)"><code class="cmd">nums.map(n =&gt; n * 2)</code><span class="desc">Builds a new array by running the function on every item.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="nums.filter(n =&gt; n &gt; 2)"><code class="cmd">nums.filter(n =&gt; n &gt; 2)</code><span class="desc">Builds a new array with only the items where the function returns true.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="nums.forEach(n =&gt; console.log(n))"><code class="cmd">nums.forEach(n =&gt; console.log(n))</code><span class="desc">Runs the function once for every item. It does not build a new array.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="setTimeout(fn, 1000)"><code class="cmd">setTimeout(fn, 1000)</code><span class="desc">Runs fn once after 1000 milliseconds, which is one second.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Web page, data and errors</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="document.querySelector(&quot;.btn&quot;)"><code class="cmd">document.querySelector(&quot;.btn&quot;)</code><span class="desc">Finds the first element on the page that matches the CSS selector.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="btn.addEventListener(&quot;click&quot;, fn)"><code class="cmd">btn.addEventListener(&quot;click&quot;, fn)</code><span class="desc">Runs fn every time the button is clicked.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="btn.textContent = &quot;Hi&quot;"><code class="cmd">btn.textContent = &quot;Hi&quot;</code><span class="desc">Changes the text inside an element on the page.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="JSON.stringify(obj)"><code class="cmd">JSON.stringify(obj)</code><span class="desc">Turns an object into JSON text. JSON.parse turns the text back into an object.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const res = await fetch(url)"><code class="cmd">const res = await fetch(url)</code><span class="desc">Asks a URL for data and waits for the answer. Use await inside an async function.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="try { } catch (err) { }"><code class="cmd">try { } catch (err) { }</code><span class="desc">Runs the try block. If it throws an error, the catch block handles it instead of crashing.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 6 · JavaScript · by VR Developments</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
