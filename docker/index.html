@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docker Cheat Sheet by VR Developments</title>
+<meta name="description" content="Docker cheat sheet: 30 essential commands on five pages, tap to copy, plus a 15-question quiz. By VR Developments.">
+<meta property="og:title" content="Docker Cheat Sheet by VR Developments">
+<meta property="og:description" content="30 essential Docker commands on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/docker/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">Docker Cheat Sheet</h1><span class="by">by VR Developments</span></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the Docker commands you use most, then a 15-question quiz. Tap any command to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Basics</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="docker --version"><code class="cmd">docker --version</code><span class="desc">Shows the installed Docker version. A quick check that Docker is ready.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker run hello-world"><code class="cmd">docker run hello-world</code><span class="desc">Downloads a tiny test image and runs it in a container. It proves your setup works.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker pull nginx"><code class="cmd">docker pull nginx</code><span class="desc">Downloads an image from Docker Hub without running it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker images"><code class="cmd">docker images</code><span class="desc">Lists the images stored on your computer.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker ps"><code class="cmd">docker ps</code><span class="desc">Lists the containers that are running right now.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker ps -a"><code class="cmd">docker ps -a</code><span class="desc">Lists all containers, including the ones that have stopped.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">Run containers</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="docker run -d nginx"><code class="cmd">docker run -d nginx</code><span class="desc">Starts the container in the background (detached), so your terminal stays free.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker run -p 8080:80 nginx"><code class="cmd">docker run -p 8080:80 nginx</code><span class="desc">Maps port 8080 on your computer to port 80 inside the container.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker run --name web nginx"><code class="cmd">docker run --name web nginx</code><span class="desc">Gives the container a name you choose, so you do not need its ID.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker run -it ubuntu bash"><code class="cmd">docker run -it ubuntu bash</code><span class="desc">Starts an interactive container and opens a shell inside it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker run --rm alpine echo hi"><code class="cmd">docker run --rm alpine echo hi</code><span class="desc">Removes the container automatically as soon as it exits.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker run -e MODE=dev nginx"><code class="cmd">docker run -e MODE=dev nginx</code><span class="desc">Sets an environment variable inside the container.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Manage containers</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="docker stop web"><code class="cmd">docker stop web</code><span class="desc">Stops a running container. web is its name or ID.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker start web"><code class="cmd">docker start web</code><span class="desc">Starts a stopped container again.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker restart web"><code class="cmd">docker restart web</code><span class="desc">Stops the container and starts it again in one step.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker logs -f web"><code class="cmd">docker logs -f web</code><span class="desc">Shows what the container prints. -f keeps following new lines.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker exec -it web sh"><code class="cmd">docker exec -it web sh</code><span class="desc">Opens a shell inside a container that is already running.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker rm web"><code class="cmd">docker rm web</code><span class="desc">Removes a stopped container. Add -f to remove a running one.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Images and Dockerfile</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="docker build -t myapp ."><code class="cmd">docker build -t myapp .</code><span class="desc">Builds an image from the Dockerfile in this folder and names it myapp.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="FROM node:20"><code class="cmd">FROM node:20</code><span class="desc">A Dockerfile line. It picks the base image your image starts from.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="COPY . /app"><code class="cmd">COPY . /app</code><span class="desc">A Dockerfile line. It copies your files into the image, here into the folder /app.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="RUN npm install"><code class="cmd">RUN npm install</code><span class="desc">A Dockerfile line. It runs a command while the image is being built.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="CMD [&quot;node&quot;, &quot;app.js&quot;]"><code class="cmd">CMD [&quot;node&quot;, &quot;app.js&quot;]</code><span class="desc">A Dockerfile line. It sets the command the container runs when it starts.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker rmi myapp"><code class="cmd">docker rmi myapp</code><span class="desc">Removes an image from your computer.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Volumes, networks and Compose</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="docker volume create data"><code class="cmd">docker volume create data</code><span class="desc">Makes a named volume, storage that stays after a container is removed.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker run -v data:/data alpine"><code class="cmd">docker run -v data:/data alpine</code><span class="desc">Mounts the volume data at /data inside the container, so your files survive.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker network create mynet"><code class="cmd">docker network create mynet</code><span class="desc">Makes a network. Containers on it can reach each other by name.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker compose up -d"><code class="cmd">docker compose up -d</code><span class="desc">Starts everything listed in compose.yaml, in the background.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker compose down"><code class="cmd">docker compose down</code><span class="desc">Stops and removes the containers that compose up started.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="docker system prune"><code class="cmd">docker system prune</code><span class="desc">Cleans up stopped containers, unused networks and dangling images.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 7 · Docker · by VR Developments</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
