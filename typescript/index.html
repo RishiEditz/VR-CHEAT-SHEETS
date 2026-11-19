@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TypeScript Cheat Sheet by VR Developments</title>
+<meta name="description" content="TypeScript cheat sheet: 30 essential types and patterns on five pages, tap to copy, plus a 15-question quiz. By VR Developments.">
+<meta property="og:title" content="TypeScript Cheat Sheet by VR Developments">
+<meta property="og:description" content="30 essential TypeScript types and patterns on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/typescript/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">TypeScript Cheat Sheet</h1><span class="by">by VR Developments</span></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the TypeScript types and patterns you use most, then a 15-question quiz. Tap any line to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Basic types</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="let name: string = &quot;Ava&quot;;"><code class="cmd">let name: string = &quot;Ava&quot;;</code><span class="desc">A colon and a type tell TypeScript what the variable can hold. Here, text.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="let age: number = 25;"><code class="cmd">let age: number = 25;</code><span class="desc">number covers whole numbers and decimals.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="let done: boolean = false;"><code class="cmd">let done: boolean = false;</code><span class="desc">boolean is either true or false.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="let tags: string[] = [&quot;a&quot;, &quot;b&quot;];"><code class="cmd">let tags: string[] = [&quot;a&quot;, &quot;b&quot;];</code><span class="desc">An array where every item is a string. Write number[] for numbers.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="let pair: [string, number] = [&quot;age&quot;, 25];"><code class="cmd">let pair: [string, number] = [&quot;age&quot;, 25];</code><span class="desc">A tuple: a fixed length, with a set type at each position.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="let data: unknown;"><code class="cmd">let data: unknown;</code><span class="desc">Holds any value, but you must check its type before you use it. Safer than any.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">Functions</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="function add(a: number, b: number): number"><code class="cmd">function add(a: number, b: number): number</code><span class="desc">Parameters and the return value both get a type.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const square = (n: number): number =&gt; n * n;"><code class="cmd">const square = (n: number): number =&gt; n * n;</code><span class="desc">An arrow function with typed input and output.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="function greet(name?: string)"><code class="cmd">function greet(name?: string)</code><span class="desc">A ? after the name makes the parameter optional.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="function greet(name: string = &quot;friend&quot;)"><code class="cmd">function greet(name: string = &quot;friend&quot;)</code><span class="desc">A default value is used when no argument is passed.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="function log(msg: string): void"><code class="cmd">function log(msg: string): void</code><span class="desc">void means the function returns nothing.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="function sum(...nums: number[])"><code class="cmd">function sum(...nums: number[])</code><span class="desc">A rest parameter collects extra arguments into an array.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Interfaces and types</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="interface User { name: string; age: number }"><code class="cmd">interface User { name: string; age: number }</code><span class="desc">Describes the shape of an object. It exists only while you code.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="type ID = string | number;"><code class="cmd">type ID = string | number;</code><span class="desc">A type alias gives a name to any type, including a union.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="interface User { nick?: string }"><code class="cmd">interface User { nick?: string }</code><span class="desc">A ? makes a property optional, so it may be missing.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="interface Point { readonly x: number }"><code class="cmd">interface Point { readonly x: number }</code><span class="desc">readonly stops a property from being changed after it is set.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="interface Admin extends User {}"><code class="cmd">interface Admin extends User {}</code><span class="desc">Admin gets everything in User, and you can add its own properties inside the braces.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="type Both = A &amp; B;"><code class="cmd">type Both = A &amp; B;</code><span class="desc">An intersection: the value must have everything from A and from B.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Unions and generics</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="let id: string | number;"><code class="cmd">let id: string | number;</code><span class="desc">A union: the value can be either type.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="let dir: &quot;up&quot; | &quot;down&quot;;"><code class="cmd">let dir: &quot;up&quot; | &quot;down&quot;;</code><span class="desc">A literal union: only these exact values are allowed.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="if (typeof x === &quot;string&quot;)"><code class="cmd">if (typeof x === &quot;string&quot;)</code><span class="desc">Narrowing: inside the if block, TypeScript treats x as a string.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="value as string"><code class="cmd">value as string</code><span class="desc">A type assertion. You tell TypeScript the type. It does not check at runtime.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="function first&lt;T&gt;(arr: T[]): T"><code class="cmd">function first&lt;T&gt;(arr: T[]): T</code><span class="desc">A generic: T is a placeholder that is filled in when you call it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="enum Color { Red, Green, Blue }"><code class="cmd">enum Color { Red, Green, Blue }</code><span class="desc">A named set of constants. The first value is 0 by default.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Utility types and tsc</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="Partial&lt;User&gt;"><code class="cmd">Partial&lt;User&gt;</code><span class="desc">The same type, but every property becomes optional.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="Omit&lt;User, &quot;age&quot;&gt;"><code class="cmd">Omit&lt;User, &quot;age&quot;&gt;</code><span class="desc">The same type, without the properties you list.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="Record&lt;string, number&gt;"><code class="cmd">Record&lt;string, number&gt;</code><span class="desc">An object whose keys are strings and whose values are numbers.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&quot;strict&quot;: true"><code class="cmd">&quot;strict&quot;: true</code><span class="desc">A tsconfig.json setting that turns on TypeScript&#x27;s strict checks.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="npx tsc --init"><code class="cmd">npx tsc --init</code><span class="desc">Creates a tsconfig.json file with the default settings.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="npx tsc app.ts"><code class="cmd">npx tsc app.ts</code><span class="desc">Compiles app.ts to plain JavaScript in app.js.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 8 · TypeScript · by VR Developments</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
