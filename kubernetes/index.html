@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kubernetes Cheat Sheet by VR Developments</title>
+<meta name="description" content="Kubernetes cheat sheet: 30 essential kubectl commands on five pages, tap to copy, plus a 15-question quiz. By VR Developments.">
+<meta property="og:title" content="Kubernetes Cheat Sheet by VR Developments">
+<meta property="og:description" content="30 essential kubectl commands on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/kubernetes/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">Kubernetes Cheat Sheet</h1><span class="by">by VR Developments</span></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the kubectl commands you use most, then a 15-question quiz. Tap any line to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Look around</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="kubectl get pods"><code class="cmd">kubectl get pods</code><span class="desc">Lists the pods in your current namespace.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl get pods -A"><code class="cmd">kubectl get pods -A</code><span class="desc">Lists pods from every namespace at once.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl get pods -o wide"><code class="cmd">kubectl get pods -o wide</code><span class="desc">Adds extra columns, such as the node and the pod IP.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl get nodes"><code class="cmd">kubectl get nodes</code><span class="desc">Lists the machines that make up your cluster.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl describe pod NAME"><code class="cmd">kubectl describe pod NAME</code><span class="desc">Shows the full details and recent events for one pod.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl get events"><code class="cmd">kubectl get events</code><span class="desc">Lists recent cluster events. Handy when a pod will not start.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">Run and scale</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="kubectl run web --image=nginx"><code class="cmd">kubectl run web --image=nginx</code><span class="desc">Starts a single pod named web from the nginx image.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl create deployment web --image=nginx"><code class="cmd">kubectl create deployment web --image=nginx</code><span class="desc">Creates a deployment that keeps your pods running.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl apply -f app.yaml"><code class="cmd">kubectl apply -f app.yaml</code><span class="desc">Creates or updates objects from a YAML file.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl scale deployment web --replicas=3"><code class="cmd">kubectl scale deployment web --replicas=3</code><span class="desc">Runs three copies of the pod.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl delete pod NAME"><code class="cmd">kubectl delete pod NAME</code><span class="desc">Deletes a pod. A deployment will start a replacement.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl delete -f app.yaml"><code class="cmd">kubectl delete -f app.yaml</code><span class="desc">Removes the objects that the file describes.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Services and namespaces</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="kubectl expose deployment web --port=80"><code class="cmd">kubectl expose deployment web --port=80</code><span class="desc">Puts a service in front of the deployment so pods get one steady address.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl get svc"><code class="cmd">kubectl get svc</code><span class="desc">Lists services with their type and cluster IP.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl port-forward pod/NAME 8080:80"><code class="cmd">kubectl port-forward pod/NAME 8080:80</code><span class="desc">Sends local port 8080 to port 80 inside the pod, for quick testing.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl get ns"><code class="cmd">kubectl get ns</code><span class="desc">Lists the namespaces, the folders that group your objects.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl -n dev get pods"><code class="cmd">kubectl -n dev get pods</code><span class="desc">Runs a command inside the dev namespace.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl config get-contexts"><code class="cmd">kubectl config get-contexts</code><span class="desc">Lists the clusters kubectl knows. The current one has a star.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Config and labels</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="kubectl create configmap app --from-literal=MODE=prod"><code class="cmd">kubectl create configmap app --from-literal=MODE=prod</code><span class="desc">Stores a setting as a key and a value.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl create secret generic db --from-literal=pw=s3cret"><code class="cmd">kubectl create secret generic db --from-literal=pw=s3cret</code><span class="desc">Stores a sensitive value. It is only base64 encoded by default, not encrypted.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl get configmap app -o yaml"><code class="cmd">kubectl get configmap app -o yaml</code><span class="desc">Prints the object as YAML so you can read it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl set env deployment/web MODE=prod"><code class="cmd">kubectl set env deployment/web MODE=prod</code><span class="desc">Sets an environment variable for the deployment&#x27;s pods.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl label pod web tier=front"><code class="cmd">kubectl label pod web tier=front</code><span class="desc">Adds a label. Services find pods by matching labels.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl edit deployment web"><code class="cmd">kubectl edit deployment web</code><span class="desc">Opens the live object in your editor. Save to apply the change.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Debug and rollout</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="kubectl logs -f NAME"><code class="cmd">kubectl logs -f NAME</code><span class="desc">Streams a pod&#x27;s log output as it is written.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl logs NAME --previous"><code class="cmd">kubectl logs NAME --previous</code><span class="desc">Shows the log of the last container that crashed.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl exec -it NAME -- sh"><code class="cmd">kubectl exec -it NAME -- sh</code><span class="desc">Opens a shell inside the running container.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl rollout status deployment/web"><code class="cmd">kubectl rollout status deployment/web</code><span class="desc">Watches a rollout until it finishes.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl set image deployment/web nginx=nginx:1.27"><code class="cmd">kubectl set image deployment/web nginx=nginx:1.27</code><span class="desc">Swaps the image and starts a rolling update.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="kubectl rollout undo deployment/web"><code class="cmd">kubectl rollout undo deployment/web</code><span class="desc">Goes back to the previous revision.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 9 · Kubernetes · by VR Developments</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
