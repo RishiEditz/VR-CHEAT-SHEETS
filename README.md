@@ -15,6 +15,7 @@ Interactive cheat sheets you can scroll through, copy commands from and test you
 | Docker | https://rishieditz.github.io/VR-CHEAT-SHEETS/docker/ |
 | TypeScript | https://rishieditz.github.io/VR-CHEAT-SHEETS/typescript/ |
 | Kubernetes | https://rishieditz.github.io/VR-CHEAT-SHEETS/kubernetes/ |
+| React | https://rishieditz.github.io/VR-CHEAT-SHEETS/react/ |
 
 Each sheet has:
 
@@ -41,6 +42,7 @@ javascript/     the JavaScript cheat sheet (index.html, style.css, script.js, pa
 docker/         the Docker cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 typescript/     the TypeScript cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 kubernetes/     the Kubernetes cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
+react/          the React cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 ```
 
 New sheets go in their own folder and get a card on the landing page.

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>React Cheat Sheet by VR Developments</title>
+<meta name="description" content="React cheat sheet: 30 essential hooks and patterns on five pages, tap to copy, plus a 15-question quiz. By VR Developments.">
+<meta property="og:title" content="React Cheat Sheet by VR Developments">
+<meta property="og:description" content="30 essential hooks and patterns on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/react/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">React Cheat Sheet</h1></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the React hooks and patterns you use most, then a 15-question quiz. Tap any line to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Components and JSX</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="const Hello = ({ name }) =&gt; &lt;h1&gt;{name}&lt;/h1&gt;;"><code class="cmd">const Hello = ({ name }) =&gt; &lt;h1&gt;{name}&lt;/h1&gt;;</code><span class="desc">A component is a function that takes props and returns JSX.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;Hello name=&quot;Ana&quot; /&gt;"><code class="cmd">&lt;Hello name=&quot;Ana&quot; /&gt;</code><span class="desc">Use a component like a tag. Its name must start with a capital letter.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;p&gt;{count * 2}&lt;/p&gt;"><code class="cmd">&lt;p&gt;{count * 2}&lt;/p&gt;</code><span class="desc">Curly braces put any JavaScript expression inside JSX.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;div className=&quot;box&quot;&gt;"><code class="cmd">&lt;div className=&quot;box&quot;&gt;</code><span class="desc">JSX uses className, not class, for CSS classes.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;&gt;&lt;Header /&gt;&lt;Main /&gt;&lt;/&gt;"><code class="cmd">&lt;&gt;&lt;Header /&gt;&lt;Main /&gt;&lt;/&gt;</code><span class="desc">A fragment groups siblings without adding an extra element to the page.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="function Box({ children }) {"><code class="cmd">function Box({ children }) {</code><span class="desc">Whatever you put between a component&#x27;s tags arrives as the children prop.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">State and refs</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="const [n, setN] = useState(0);"><code class="cmd">const [n, setN] = useState(0);</code><span class="desc">Creates state. You get the current value and a function to change it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="setN(prev =&gt; prev + 1);"><code class="cmd">setN(prev =&gt; prev + 1);</code><span class="desc">Use the updater form when the new value depends on the old one.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="setUser({ ...user, age: 30 });"><code class="cmd">setUser({ ...user, age: 30 });</code><span class="desc">Never change state in place. Copy the object, then change the copy.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="useState(() =&gt; readSaved())"><code class="cmd">useState(() =&gt; readSaved())</code><span class="desc">Pass a function so an expensive starting value is computed only once.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const ref = useRef(null);"><code class="cmd">const ref = useRef(null);</code><span class="desc">A box that keeps its value between renders. Changing it does not re-render.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const [s, dispatch] = useReducer(fn, init);"><code class="cmd">const [s, dispatch] = useReducer(fn, init);</code><span class="desc">Manages state with a reducer function. Handy for complex updates.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Effects and cleanup</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="useEffect(() =&gt; { ... }, []);"><code class="cmd">useEffect(() =&gt; { ... }, []);</code><span class="desc">Runs after the first render only. The empty array means no dependencies.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="useEffect(() =&gt; { ... }, [id]);"><code class="cmd">useEffect(() =&gt; { ... }, [id]);</code><span class="desc">Runs after the first render, and again whenever id changes.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="useEffect(() =&gt; { ... });"><code class="cmd">useEffect(() =&gt; { ... });</code><span class="desc">With no array at all, it runs after every render.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="return () =&gt; clearInterval(timer);"><code class="cmd">return () =&gt; clearInterval(timer);</code><span class="desc">Cleanup. Returned from an effect, it stops timers and listeners before the next run and on unmount.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="useLayoutEffect(() =&gt; { ... }, []);"><code class="cmd">useLayoutEffect(() =&gt; { ... }, []);</code><span class="desc">Runs before the browser paints. Use it to measure the page layout.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;StrictMode&gt;&lt;App /&gt;&lt;/StrictMode&gt;"><code class="cmd">&lt;StrictMode&gt;&lt;App /&gt;&lt;/StrictMode&gt;</code><span class="desc">In development, Strict Mode runs effects an extra time to expose missing cleanup.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Memo and context</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="const v = useMemo(() =&gt; calc(a), [a]);"><code class="cmd">const v = useMemo(() =&gt; calc(a), [a]);</code><span class="desc">Remembers a calculated value until a dependency changes.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const fn = useCallback(() =&gt; go(id), [id]);"><code class="cmd">const fn = useCallback(() =&gt; go(id), [id]);</code><span class="desc">Keeps the same function between renders until id changes.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="export default memo(Row);"><code class="cmd">export default memo(Row);</code><span class="desc">Skips re-rendering Row when its props are the same as last time.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const ThemeCtx = createContext(&quot;light&quot;);"><code class="cmd">const ThemeCtx = createContext(&quot;light&quot;);</code><span class="desc">Creates a context with a default value.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;ThemeCtx.Provider value={theme}&gt;"><code class="cmd">&lt;ThemeCtx.Provider value={theme}&gt;</code><span class="desc">Makes the value available to every component below it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const theme = useContext(ThemeCtx);"><code class="cmd">const theme = useContext(ThemeCtx);</code><span class="desc">Reads the closest value from the context above.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Patterns and rules</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="{items.map(i =&gt; &lt;li key={i.id}&gt;{i.name}&lt;/li&gt;)}"><code class="cmd">{items.map(i =&gt; &lt;li key={i.id}&gt;{i.name}&lt;/li&gt;)}</code><span class="desc">Render a list with map. Give each item a stable, unique key.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="{isOn ? &lt;On /&gt; : &lt;Off /&gt;}"><code class="cmd">{isOn ? &lt;On /&gt; : &lt;Off /&gt;}</code><span class="desc">Pick between two views with a ternary.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="{user &amp;&amp; &lt;Profile user={user} /&gt;}"><code class="cmd">{user &amp;&amp; &lt;Profile user={user} /&gt;}</code><span class="desc">Shows the part only when user is truthy. Careful: a 0 renders as 0.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="function useToggle(start = false) {"><code class="cmd">function useToggle(start = false) {</code><span class="desc">A custom hook is a function whose name starts with use. It reuses logic.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;Child value={v} onChange={setV} /&gt;"><code class="cmd">&lt;Child value={v} onChange={setV} /&gt;</code><span class="desc">Lift state up: the parent owns it and passes the value and the setter down.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="if (ok) { useState(0); } // wrong"><code class="cmd">if (ok) { useState(0); } // wrong</code><span class="desc">Never call a hook inside an if, a loop or a nested function.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 10 · React ·</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
