@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bash Cheat Sheet</title>
+<meta name="description" content="Bash cheat sheet: 30 essential commands and patterns on five pages, tap to copy, plus a 15-question quiz.">
+<meta property="og:title" content="Bash Cheat Sheet">
+<meta property="og:description" content="30 essential commands and patterns on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/bash/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">Bash Cheat Sheet</h1></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the Bash commands and patterns you use most, then a 15-question quiz. Tap any line to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Files and folders</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="ls -la"><code class="cmd">ls -la</code><span class="desc">List everything, hidden files included, with sizes and permissions.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="cd -"><code class="cmd">cd -</code><span class="desc">Jump back to the previous folder. A plain cd takes you home.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="mkdir -p app/src/utils"><code class="cmd">mkdir -p app/src/utils</code><span class="desc">Create a folder and any missing parent folders in one go.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="cp -r src backup/"><code class="cmd">cp -r src backup/</code><span class="desc">Copy a folder and everything inside it. Without -r, cp skips folders.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="mv old.txt new.txt"><code class="cmd">mv old.txt new.txt</code><span class="desc">Move or rename a file. It is the same command for both.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="rm -rf build/"><code class="cmd">rm -rf build/</code><span class="desc">Delete a folder and its contents with no prompt and no trash. Check the path first.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">Read and search</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="tail -f app.log"><code class="cmd">tail -f app.log</code><span class="desc">Follow a file as new lines are added. Press Ctrl+C to stop.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="head -n 5 data.csv"><code class="cmd">head -n 5 data.csv</code><span class="desc">Show only the first 5 lines of a file.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="grep -rn &quot;TODO&quot; src/"><code class="cmd">grep -rn &quot;TODO&quot; src/</code><span class="desc">Search every file under src for TODO, with file names and line numbers.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="grep -i -v &quot;debug&quot; app.log"><code class="cmd">grep -i -v &quot;debug&quot; app.log</code><span class="desc">-i ignores case. -v keeps only the lines that do not match.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="find . -name &quot;*.log&quot; -mtime -1"><code class="cmd">find . -name &quot;*.log&quot; -mtime -1</code><span class="desc">Find .log files changed in the last day, starting from this folder.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="sort names.txt | uniq -c"><code class="cmd">sort names.txt | uniq -c</code><span class="desc">Count how often each line appears. Sort first: uniq only merges lines that sit together.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Pipes and redirects</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="ls | wc -l"><code class="cmd">ls | wc -l</code><span class="desc">A pipe sends the output of one command into the next as its input.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="echo hi &gt; out.txt"><code class="cmd">echo hi &gt; out.txt</code><span class="desc">Write output to a file. Whatever the file held before is replaced.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="echo hi &gt;&gt; out.txt"><code class="cmd">echo hi &gt;&gt; out.txt</code><span class="desc">Append to the end of the file instead of replacing it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="make 2&gt; errors.log"><code class="cmd">make 2&gt; errors.log</code><span class="desc">Send error messages (stream 2) to a file and keep normal output on screen.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="make &gt; all.log 2&gt;&amp;1"><code class="cmd">make &gt; all.log 2&gt;&amp;1</code><span class="desc">Send normal output and errors to the same file. Put 2&gt;&amp;1 after the file name.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="ls | tee list.txt"><code class="cmd">ls | tee list.txt</code><span class="desc">Show the output on screen and save it to a file at the same time.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Variables and quotes</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="name=&quot;Ana&quot;"><code class="cmd">name=&quot;Ana&quot;</code><span class="desc">Set a variable. There must be no spaces around the = sign.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="echo &quot;Hi $name&quot;"><code class="cmd">echo &quot;Hi $name&quot;</code><span class="desc">Read a variable with $. Double quotes expand it; single quotes print it as written.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="echo &quot;${name}_v2&quot;"><code class="cmd">echo &quot;${name}_v2&quot;</code><span class="desc">Braces mark where the name ends. $name_v2 would look for a variable called name_v2.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="today=$(date +%F)"><code class="cmd">today=$(date +%F)</code><span class="desc">Command substitution: store a command&#x27;s output in a variable.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="echo $?"><code class="cmd">echo $?</code><span class="desc">The exit status of the last command. 0 means success, anything else means failure.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="export PATH=&quot;$HOME/bin:$PATH&quot;"><code class="cmd">export PATH=&quot;$HOME/bin:$PATH&quot;</code><span class="desc">Make a variable visible to child programs. This one adds a folder to the front of PATH.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Scripts and logic</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="#!/usr/bin/env bash"><code class="cmd">#!/usr/bin/env bash</code><span class="desc">The first line of a script. It tells the system to run the file with bash.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="chmod +x run.sh &amp;&amp; ./run.sh"><code class="cmd">chmod +x run.sh &amp;&amp; ./run.sh</code><span class="desc">Make the script executable, then run it. &amp;&amp; runs the second command only if the first succeeds.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="if [[ -f &quot;$f&quot; ]]; then echo ok; fi"><code class="cmd">if [[ -f &quot;$f&quot; ]]; then echo ok; fi</code><span class="desc">True when the file exists. Use -d for a folder and -z for an empty string.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="for f in *.txt; do echo &quot;$f&quot;; done"><code class="cmd">for f in *.txt; do echo &quot;$f&quot;; done</code><span class="desc">Loop over files. Quote &quot;$f&quot; so names with spaces survive.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="echo &quot;$1&quot; &quot;$#&quot; &quot;$@&quot;"><code class="cmd">echo &quot;$1&quot; &quot;$#&quot; &quot;$@&quot;</code><span class="desc">Script arguments: the first one, how many there are, and all of them.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="set -euo pipefail"><code class="cmd">set -euo pipefail</code><span class="desc">Safer scripts: stop on errors, on unset variables, and when any part of a pipe fails.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 11 · Bash ·</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
