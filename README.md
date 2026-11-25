@@ -17,6 +17,7 @@ Interactive cheat sheets you can scroll through, copy commands from and test you
 | Kubernetes | https://rishieditz.github.io/VR-CHEAT-SHEETS/kubernetes/ |
 | React | https://rishieditz.github.io/VR-CHEAT-SHEETS/react/ |
 | Bash | https://rishieditz.github.io/VR-CHEAT-SHEETS/bash/ |
+| CSS | https://rishieditz.github.io/VR-CHEAT-SHEETS/css/ |
 
 Each sheet has:
 
@@ -45,6 +46,7 @@ typescript/     the TypeScript cheat sheet (index.html, style.css, script.js, pa
 kubernetes/     the Kubernetes cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 react/          the React cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 bash/           the Bash cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
+css/            the CSS cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 css/            the CSS cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 ```
 
