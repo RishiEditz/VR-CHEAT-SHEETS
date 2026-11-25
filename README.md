@@ -45,6 +45,7 @@ typescript/     the TypeScript cheat sheet (index.html, style.css, script.js, pa
 kubernetes/     the Kubernetes cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 react/          the React cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 bash/           the Bash cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
+css/            the CSS cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 ```
 
 New sheets go in their own folder and get a card on the landing page.

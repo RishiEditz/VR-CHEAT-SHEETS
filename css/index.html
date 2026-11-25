@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSS Cheat Sheet</title>
+<meta name="description" content="CSS cheat sheet: 30 essential commands and patterns on five pages, tap to copy, plus a 15-question quiz.">
+<meta property="og:title" content="CSS Cheat Sheet">
+<meta property="og:description" content="30 essential commands and patterns on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/css/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">CSS Cheat Sheet</h1></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the CSS selectors, rules and tricks you use most, then a 15-question quiz. Tap any line to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Selectors</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd=".btn.primary"><code class="cmd">.btn.primary</code><span class="desc">No space means one element with both classes. With a space, .btn .primary means a descendant.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd=".card &gt; p"><code class="cmd">.card &gt; p</code><span class="desc">Direct children only: paragraphs placed straight inside .card, not deeper.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="h2 + p"><code class="cmd">h2 + p</code><span class="desc">Adjacent sibling: the paragraph right after an h2. Use h2 ~ p for every later sibling.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="a[href^=&quot;https&quot;]"><code class="cmd">a[href^=&quot;https&quot;]</code><span class="desc">Attribute selector: links whose href starts with https. Use $= for ends with.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="li:nth-child(odd)"><code class="cmd">li:nth-child(odd)</code><span class="desc">Pseudo-class: every odd list item. Try 3n to pick every third item.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="#nav .link"><code class="cmd">#nav .link</code><span class="desc">Specificity: an id outweighs any number of classes, and a class outweighs element names. On a tie, the later rule wins.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">Box model</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="box-sizing: border-box;"><code class="cmd">box-sizing: border-box;</code><span class="desc">Width and height include padding and border. Most resets set it on *, *::before and *::after.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="margin: 10px 20px;"><code class="cmd">margin: 10px 20px;</code><span class="desc">Two values: top and bottom, then left and right. Four values go clockwise from the top.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="margin: 0 auto;"><code class="cmd">margin: 0 auto;</code><span class="desc">Centers a block that has a set width. Vertical margins between neighbouring blocks collapse into the larger one.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="border: 2px solid #7B61FF;"><code class="cmd">border: 2px solid #7B61FF;</code><span class="desc">Width, style, colour. With no style, no border is drawn.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="overflow: hidden;"><code class="cmd">overflow: hidden;</code><span class="desc">Clips whatever spills out of the box. With auto, scrollbars appear only when needed.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="width: min(100%, 600px);"><code class="cmd">width: min(100%, 600px);</code><span class="desc">Fluid width that never grows past 600px. max-width: 600px gives a similar result.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Flexbox</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="display: flex;"><code class="cmd">display: flex;</code><span class="desc">Makes the parent a flex container. Its children line up in a row.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="justify-content: space-between;"><code class="cmd">justify-content: space-between;</code><span class="desc">Spreads items along the main axis. center, flex-end and space-around work the same way.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="align-items: center;"><code class="cmd">align-items: center;</code><span class="desc">Aligns items on the cross axis. In a row, that centers them vertically.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="flex-direction: column;"><code class="cmd">flex-direction: column;</code><span class="desc">Switches the main axis to vertical. Now justify-content works up and down.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="flex: 1;"><code class="cmd">flex: 1;</code><span class="desc">The item grows to fill free space. Two items with flex: 1 share it equally.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="flex-wrap: wrap; gap: 16px;"><code class="cmd">flex-wrap: wrap; gap: 16px;</code><span class="desc">Items drop to the next line when the row is full, with 16px between them. gap needs no margins.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Grid</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="display: grid;"><code class="cmd">display: grid;</code><span class="desc">Starts a grid. Children fall into the rows and columns you define.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="grid-template-columns: 1fr 2fr;"><code class="cmd">grid-template-columns: 1fr 2fr;</code><span class="desc">Two columns, the second twice as wide. fr is a share of the free space.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="grid-template-columns: repeat(3, 1fr);"><code class="cmd">grid-template-columns: repeat(3, 1fr);</code><span class="desc">Three equal columns without typing 1fr three times.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));"><code class="cmd">grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</code><span class="desc">Responsive columns at least 200px wide, with no media query.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="grid-column: 1 / -1;"><code class="cmd">grid-column: 1 / -1;</code><span class="desc">Makes an item span from the first column line to the last one.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="place-items: center;"><code class="cmd">place-items: center;</code><span class="desc">Centers every item inside its cell, both ways. It is shorthand for align-items and justify-items.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Common tricks</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="display: grid; place-items: center;"><code class="cmd">display: grid; place-items: center;</code><span class="desc">Centers anything in the middle of its parent. Give the parent a height.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="position: absolute; inset: 0;"><code class="cmd">position: absolute; inset: 0;</code><span class="desc">Stretches an element over its nearest positioned parent. inset: 0 sets top, right, bottom and left to 0.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="position: sticky; top: 0;"><code class="cmd">position: sticky; top: 0;</code><span class="desc">The element scrolls normally, then sticks to the top of the screen.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="aspect-ratio: 16 / 9;"><code class="cmd">aspect-ratio: 16 / 9;</code><span class="desc">Keeps the box in proportion as its width changes.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd=":root { --brand: #7B61FF; }"><code class="cmd">:root { --brand: #7B61FF; }</code><span class="desc">Define a CSS variable once, then use it anywhere with var(--brand).</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="@media (max-width: 600px) { }"><code class="cmd">@media (max-width: 600px) { }</code><span class="desc">Rules inside apply only on screens 600px wide or narrower.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 12 · CSS ·</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
