@@ -18,6 +18,7 @@ Interactive cheat sheets you can scroll through, copy commands from and test you
 | React | https://rishieditz.github.io/VR-CHEAT-SHEETS/react/ |
 | Bash | https://rishieditz.github.io/VR-CHEAT-SHEETS/bash/ |
 | CSS | https://rishieditz.github.io/VR-CHEAT-SHEETS/css/ |
+| HTML | https://rishieditz.github.io/VR-CHEAT-SHEETS/html/ |
 
 Each sheet has:
 
@@ -47,6 +48,7 @@ kubernetes/     the Kubernetes cheat sheet (index.html, style.css, script.js, pa
 react/          the React cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 bash/           the Bash cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 css/            the CSS cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
+html/           the HTML cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 ```
 
 New sheets go in their own folder and get a card on the landing page.

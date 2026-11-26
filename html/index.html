@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML Cheat Sheet</title>
+<meta name="description" content="HTML cheat sheet: 30 essential commands and patterns on five pages, tap to copy, plus a 15-question quiz.">
+<meta property="og:title" content="HTML Cheat Sheet">
+<meta property="og:description" content="30 essential commands and patterns on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/html/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">HTML Cheat Sheet</h1></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the HTML tags, attributes and patterns you use most, then a 15-question quiz. Tap any line to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Basics</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="&lt;!DOCTYPE html&gt;"><code class="cmd">&lt;!DOCTYPE html&gt;</code><span class="desc">First line of every page. It tells the browser to use modern HTML5 rules.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;html lang=&quot;en&quot;&gt;"><code class="cmd">&lt;html lang=&quot;en&quot;&gt;</code><span class="desc">The root element. The lang attribute helps screen readers and search engines.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;meta charset=&quot;utf-8&quot;&gt;"><code class="cmd">&lt;meta charset=&quot;utf-8&quot;&gt;</code><span class="desc">Sets the character encoding so every letter and symbol shows correctly. Put it first in the head.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;"><code class="cmd">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</code><span class="desc">Makes the page fit phone screens instead of shrinking a desktop layout.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;title&gt;My Page&lt;/title&gt;"><code class="cmd">&lt;title&gt;My Page&lt;/title&gt;</code><span class="desc">The text in the browser tab and in search results. It lives inside the head.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;"><code class="cmd">&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code><span class="desc">Loads your CSS file. Put it in the head. For JavaScript, use a script tag with defer.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">Text and links</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="&lt;h1&gt;Title&lt;/h1&gt;"><code class="cmd">&lt;h1&gt;Title&lt;/h1&gt;</code><span class="desc">The main heading. Use one per page, then h2 to h6 in order for sub-headings.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;p&gt;Some text&lt;/p&gt;"><code class="cmd">&lt;p&gt;Some text&lt;/p&gt;</code><span class="desc">A paragraph. Browsers add space above and below it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;a href=&quot;page.html&quot;&gt;Link&lt;/a&gt;"><code class="cmd">&lt;a href=&quot;page.html&quot;&gt;Link&lt;/a&gt;</code><span class="desc">A link. Add target=&quot;_blank&quot; with rel=&quot;noopener&quot; to open a new tab safely.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;strong&gt;Bold&lt;/strong&gt; &lt;em&gt;Italic&lt;/em&gt;"><code class="cmd">&lt;strong&gt;Bold&lt;/strong&gt; &lt;em&gt;Italic&lt;/em&gt;</code><span class="desc">strong marks importance and em marks emphasis. Screen readers treat both differently from plain styling.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;br&gt; and &lt;hr&gt;"><code class="cmd">&lt;br&gt; and &lt;hr&gt;</code><span class="desc">br is a line break and hr is a horizontal rule. Neither needs a closing tag.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;span class=&quot;tag&quot;&gt;New&lt;/span&gt;"><code class="cmd">&lt;span class=&quot;tag&quot;&gt;New&lt;/span&gt;</code><span class="desc">An inline wrapper with no meaning of its own. Use it to style part of a line.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Lists and media</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;"><code class="cmd">&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code><span class="desc">A bullet list. Every item goes in its own li.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;ol start=&quot;3&quot;&gt;"><code class="cmd">&lt;ol start=&quot;3&quot;&gt;</code><span class="desc">A numbered list. The start attribute picks the first number.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;img src=&quot;cat.jpg&quot; alt=&quot;A cat&quot;&gt;"><code class="cmd">&lt;img src=&quot;cat.jpg&quot; alt=&quot;A cat&quot;&gt;</code><span class="desc">An image. Always write alt text for screen readers and for when the file fails to load.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;img loading=&quot;lazy&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;"><code class="cmd">&lt;img loading=&quot;lazy&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;</code><span class="desc">Lazy loading waits until the image is near the screen. Width and height stop the page jumping.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;video src=&quot;a.mp4&quot; controls&gt;"><code class="cmd">&lt;video src=&quot;a.mp4&quot; controls&gt;</code><span class="desc">Plays a video with play and pause buttons. Add muted and autoplay for a silent loop.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;table&gt;&lt;tr&gt;&lt;td&gt;Cell&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"><code class="cmd">&lt;table&gt;&lt;tr&gt;&lt;td&gt;Cell&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code><span class="desc">A table. Rows are tr, data cells are td and header cells are th.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Forms</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="&lt;form action=&quot;/send&quot; method=&quot;post&quot;&gt;"><code class="cmd">&lt;form action=&quot;/send&quot; method=&quot;post&quot;&gt;</code><span class="desc">Wraps the fields. action is where the data goes and method is get or post.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;"><code class="cmd">&lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;</code><span class="desc">Links text to a field. Clicking the label focuses the input.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;input type=&quot;email&quot; id=&quot;email&quot; required&gt;"><code class="cmd">&lt;input type=&quot;email&quot; id=&quot;email&quot; required&gt;</code><span class="desc">An email field. Phones show the right keyboard and required blocks an empty submit.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;textarea rows=&quot;4&quot;&gt;&lt;/textarea&gt;"><code class="cmd">&lt;textarea rows=&quot;4&quot;&gt;&lt;/textarea&gt;</code><span class="desc">A multi-line text box. Size it with rows or with CSS.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;select&gt;&lt;option&gt;One&lt;/option&gt;&lt;/select&gt;"><code class="cmd">&lt;select&gt;&lt;option&gt;One&lt;/option&gt;&lt;/select&gt;</code><span class="desc">A dropdown list. Each choice is an option.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;"><code class="cmd">&lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;</code><span class="desc">Submits the form. Use type=&quot;button&quot; when it should not submit.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Semantic layout</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="&lt;header&gt;&lt;nav&gt;...&lt;/nav&gt;&lt;/header&gt;"><code class="cmd">&lt;header&gt;&lt;nav&gt;...&lt;/nav&gt;&lt;/header&gt;</code><span class="desc">header holds the top of the page and nav holds the main links.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;main&gt;"><code class="cmd">&lt;main&gt;</code><span class="desc">The main content, once per page. Screen readers can jump straight to it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;article&gt;"><code class="cmd">&lt;article&gt;</code><span class="desc">A self-contained piece, like a blog post or a card. Use section to group related content.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;footer&gt;"><code class="cmd">&lt;footer&gt;</code><span class="desc">Closes a page or a section. A good home for copyright and contact links.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;div class=&quot;box&quot;&gt;"><code class="cmd">&lt;div class=&quot;box&quot;&gt;</code><span class="desc">A generic block with no meaning. Use it only when no semantic tag fits.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="&lt;!-- note --&gt;"><code class="cmd">&lt;!-- note --&gt;</code><span class="desc">A comment. Visitors do not see it, but anyone who views the source does.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 13 · HTML ·</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
