@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Node.js Cheat Sheet</title>
+<meta name="description" content="Node.js cheat sheet: 30 essential commands and patterns on five pages, tap to copy, plus a 15-question quiz.">
+<meta property="og:title" content="Node.js Cheat Sheet">
+<meta property="og:description" content="30 essential commands and patterns on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/node/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">Node.js Cheat Sheet</h1></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the Node.js commands, modules and patterns you use most, then a 15-question quiz. Tap any line to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Basics and modules</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="node app.js"><code class="cmd">node app.js</code><span class="desc">Runs a JavaScript file. Type just node to open the interactive REPL.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="node --watch app.js"><code class="cmd">node --watch app.js</code><span class="desc">Restarts your script every time you save a file. Built in, no extra tool needed.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const fs = require(&quot;node:fs&quot;);"><code class="cmd">const fs = require(&quot;node:fs&quot;);</code><span class="desc">CommonJS style. The node: prefix shows it is a built-in module.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="import fs from &quot;node:fs&quot;;"><code class="cmd">import fs from &quot;node:fs&quot;;</code><span class="desc">ES module style. Use a .mjs file or set &quot;type&quot;: &quot;module&quot; in package.json.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="module.exports = { add };"><code class="cmd">module.exports = { add };</code><span class="desc">Shares code from a CommonJS file. Other files get it with require.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="console.log(process.argv);"><code class="cmd">console.log(process.argv);</code><span class="desc">Lists the command line arguments. The first two are the node path and your script path.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">npm and packages</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="npm init -y"><code class="cmd">npm init -y</code><span class="desc">Creates a package.json with default answers.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="npm install express"><code class="cmd">npm install express</code><span class="desc">Downloads a package into node_modules and adds it to dependencies.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="npm install -D jest"><code class="cmd">npm install -D jest</code><span class="desc">Saves a tool as a dev dependency, needed only while building and testing.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="npm run dev"><code class="cmd">npm run dev</code><span class="desc">Runs the dev script from the scripts section of package.json.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="npx prettier --write ."><code class="cmd">npx prettier --write .</code><span class="desc">Runs a package&#x27;s command without installing it globally.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="npm ci"><code class="cmd">npm ci</code><span class="desc">Clean install that follows package-lock.json exactly. Great for servers and CI.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Files and paths</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="await readFile(&quot;a.txt&quot;, &quot;utf8&quot;);"><code class="cmd">await readFile(&quot;a.txt&quot;, &quot;utf8&quot;);</code><span class="desc">Reads a whole file as text. Skip the encoding and you get a Buffer.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="await writeFile(&quot;out.txt&quot;, &quot;hi&quot;);"><code class="cmd">await writeFile(&quot;out.txt&quot;, &quot;hi&quot;);</code><span class="desc">Creates the file, or replaces it if it already exists.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="await appendFile(&quot;log.txt&quot;, &quot;line\n&quot;);"><code class="cmd">await appendFile(&quot;log.txt&quot;, &quot;line\n&quot;);</code><span class="desc">Adds text to the end of a file without erasing it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="await mkdir(&quot;a/b&quot;, { recursive: true });"><code class="cmd">await mkdir(&quot;a/b&quot;, { recursive: true });</code><span class="desc">Makes nested folders and does not complain if they exist.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="path.join(&quot;data&quot;, &quot;a.txt&quot;);"><code class="cmd">path.join(&quot;data&quot;, &quot;a.txt&quot;);</code><span class="desc">Joins parts with the right separator for the operating system.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="path.join(__dirname, &quot;a.txt&quot;);"><code class="cmd">path.join(__dirname, &quot;a.txt&quot;);</code><span class="desc">__dirname is this file&#x27;s folder. In ES modules use import.meta.dirname.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Async and events</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="const res = await fetch(url);"><code class="cmd">const res = await fetch(url);</code><span class="desc">Built-in fetch works in Node 18 and newer. Use await res.json() for the data.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="await Promise.all([a(), b()]);"><code class="cmd">await Promise.all([a(), b()]);</code><span class="desc">Runs tasks at the same time and waits until all of them finish.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const wait = promisify(setTimeout);"><code class="cmd">const wait = promisify(setTimeout);</code><span class="desc">util.promisify turns a callback-style function into one that returns a promise.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="emitter.on(&quot;ping&quot;, () =&gt; {});"><code class="cmd">emitter.on(&quot;ping&quot;, () =&gt; {});</code><span class="desc">Listens for an event. Fire it with emitter.emit(&quot;ping&quot;).</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="process.nextTick(fn);"><code class="cmd">process.nextTick(fn);</code><span class="desc">Runs fn right after the current operation, before other queued async work.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="process.on(&quot;unhandledRejection&quot;, fn);"><code class="cmd">process.on(&quot;unhandledRejection&quot;, fn);</code><span class="desc">Fires when a promise fails and nothing catches it. Since Node 15 the process exits by default.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Servers and process</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="http.createServer(handler).listen(3000);"><code class="cmd">http.createServer(handler).listen(3000);</code><span class="desc">Starts a basic web server on port 3000.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="res.writeHead(200, { &quot;Content-Type&quot;: &quot;text/plain&quot; });"><code class="cmd">res.writeHead(200, { &quot;Content-Type&quot;: &quot;text/plain&quot; });</code><span class="desc">Sets the status code and headers before you send the body.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="res.end(&quot;Hello&quot;);"><code class="cmd">res.end(&quot;Hello&quot;);</code><span class="desc">Sends the body and finishes the response.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="const port = process.env.PORT || 3000;"><code class="cmd">const port = process.env.PORT || 3000;</code><span class="desc">Reads an environment variable, with a fallback when it is missing.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="node --env-file=.env app.js"><code class="cmd">node --env-file=.env app.js</code><span class="desc">Loads variables from a .env file into process.env. Node 20.6 and newer.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="process.exit(1);"><code class="cmd">process.exit(1);</code><span class="desc">Stops the program now. Exit code 0 means success, anything else means an error.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 14 · Node.js ·</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
