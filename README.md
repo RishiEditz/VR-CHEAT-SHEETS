@@ -20,6 +20,7 @@ Interactive cheat sheets you can scroll through, copy commands from and test you
 | CSS | https://rishieditz.github.io/VR-CHEAT-SHEETS/css/ |
 | HTML | https://rishieditz.github.io/VR-CHEAT-SHEETS/html/ |
 | Node.js | https://rishieditz.github.io/VR-CHEAT-SHEETS/node/ |
+| Java | https://rishieditz.github.io/VR-CHEAT-SHEETS/java/ |
 
 Each sheet has:
 
@@ -51,6 +52,7 @@ bash/           the Bash cheat sheet (index.html, style.css, script.js, page1-5.
 css/            the CSS cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 html/           the HTML cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 node/           the Node.js cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
+java/           the Java cheat sheet (index.html, style.css, script.js, page1-5.png, cover.png)
 ```
 
 New sheets go in their own folder and get a card on the landing page.

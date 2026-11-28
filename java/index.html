@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Java Cheat Sheet by VR Developments</title>
+<meta name="description" content="Java cheat sheet: 30 essential commands and patterns on five pages, tap to copy, plus a 15-question quiz. By VR Developments.">
+<meta property="og:title" content="Java Cheat Sheet by VR Developments">
+<meta property="og:description" content="30 essential commands and patterns on five pages, plus a 15-question quiz.">
+<meta property="og:url" content="https://rishieditz.github.io/VR-CHEAT-SHEETS/java/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+<div class="brand"><h1 class="site-title">Java Cheat Sheet</h1><span class="by">by VR Developments</span></div>
+<button id="theme-toggle" class="btn ghost" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+</div></header>
+<main class="wrap">
+<p class="intro">Five pages of the Java commands, syntax and patterns you use most, then a 15-question quiz. Tap any line to copy it.</p>
+<section class="page" id="page-1" aria-labelledby="h-1">
+<p class="kicker">Page 1 of 5</p>
+<h2 id="h-1">Basics and running</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="javac Hello.java"><code class="cmd">javac Hello.java</code><span class="desc">Compiles your source file into Hello.class, which holds bytecode.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="java Hello"><code class="cmd">java Hello</code><span class="desc">Runs the compiled class. Use the class name, without .class.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="java Hello.java"><code class="cmd">java Hello.java</code><span class="desc">Java 11 and newer can compile and run a single source file in one step.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="public static void main(String[] args) { }"><code class="cmd">public static void main(String[] args) { }</code><span class="desc">Every program starts here. The JVM looks for this exact method.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="System.out.println(&quot;Hi&quot;);"><code class="cmd">System.out.println(&quot;Hi&quot;);</code><span class="desc">Prints text and moves to a new line. print leaves out the new line.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="var count = 10;"><code class="cmd">var count = 10;</code><span class="desc">Java 10 and newer works out the type for you. Local variables only.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-2" aria-labelledby="h-2">
+<p class="kicker">Page 2 of 5</p>
+<h2 id="h-2">Types and strings</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="int age = 25;"><code class="cmd">int age = 25;</code><span class="desc">Whole numbers. Also byte, short and long. Use double for decimals.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="double price = 9.99;"><code class="cmd">double price = 9.99;</code><span class="desc">A decimal number. For exact money maths, use BigDecimal instead.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="String name = &quot;Java&quot;;"><code class="cmd">String name = &quot;Java&quot;;</code><span class="desc">Text is an object. Strings never change: each method returns a new one.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="name.equals(&quot;Java&quot;)"><code class="cmd">name.equals(&quot;Java&quot;)</code><span class="desc">Compares the text. Using == compares references, not the characters.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="String.format(&quot;%.2f&quot;, 3.14159);"><code class="cmd">String.format(&quot;%.2f&quot;, 3.14159);</code><span class="desc">Builds formatted text. This gives 3.14. %d is an integer, %s is a string.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="int n = Integer.parseInt(&quot;42&quot;);"><code class="cmd">int n = Integer.parseInt(&quot;42&quot;);</code><span class="desc">Turns text into a number. Bad input throws NumberFormatException.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-3" aria-labelledby="h-3">
+<p class="kicker">Page 3 of 5</p>
+<h2 id="h-3">Decisions and loops</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="if (x &gt; 0) { } else { }"><code class="cmd">if (x &gt; 0) { } else { }</code><span class="desc">Picks a path. The condition must be a boolean, not a number.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="for (int i = 0; i &lt; 5; i++) { }"><code class="cmd">for (int i = 0; i &lt; 5; i++) { }</code><span class="desc">Counting loop. Here i takes the values 0, 1, 2, 3 and 4.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="for (String s : list) { }"><code class="cmd">for (String s : list) { }</code><span class="desc">Enhanced for loop. Visits every item of an array or collection.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="while (x &lt; 10) { x++; }"><code class="cmd">while (x &lt; 10) { x++; }</code><span class="desc">Repeats while the condition is true. do-while checks after the first run.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="String d = switch (n) { case 1 -&gt; &quot;One&quot;; default -&gt; &quot;?&quot;; };"><code class="cmd">String d = switch (n) { case 1 -&gt; &quot;One&quot;; default -&gt; &quot;?&quot;; };</code><span class="desc">Switch expression, Java 14 and newer. Arrows never fall through and it returns a value.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="break;  continue;"><code class="cmd">break;  continue;</code><span class="desc">break leaves the loop now. continue jumps to the next round.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-4" aria-labelledby="h-4">
+<p class="kicker">Page 4 of 5</p>
+<h2 id="h-4">Classes and objects</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="class Dog { String name; }"><code class="cmd">class Dog { String name; }</code><span class="desc">A class is a blueprint. It holds fields and methods.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="Dog d = new Dog();"><code class="cmd">Dog d = new Dog();</code><span class="desc">The new keyword builds an object from the class.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="Dog(String name) { this.name = name; }"><code class="cmd">Dog(String name) { this.name = name; }</code><span class="desc">Constructor: it runs on new and has no return type. this means the current object.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="class Puppy extends Dog { }"><code class="cmd">class Puppy extends Dog { }</code><span class="desc">Inherits fields and methods. A class can extend only one class.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="interface Pet { void play(); }"><code class="cmd">interface Pet { void play(); }</code><span class="desc">A contract of methods. A class signs it with implements Pet.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="@Override public String toString() { }"><code class="cmd">@Override public String toString() { }</code><span class="desc">Marks a method that replaces the parent&#x27;s. The compiler catches typos.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="page" id="page-5" aria-labelledby="h-5">
+<p class="kicker">Page 5 of 5</p>
+<h2 id="h-5">Collections and errors</h2>
+<div class="grid">
+<button class="card" type="button" data-cmd="List&lt;String&gt; list = new ArrayList&lt;&gt;();"><code class="cmd">List&lt;String&gt; list = new ArrayList&lt;&gt;();</code><span class="desc">A resizable list. Use add, get(i) and size().</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="Map&lt;String, Integer&gt; m = new HashMap&lt;&gt;();"><code class="cmd">Map&lt;String, Integer&gt; m = new HashMap&lt;&gt;();</code><span class="desc">Key and value pairs. Use put, get and containsKey.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="nums.stream().filter(n -&gt; n &gt; 2).toList();"><code class="cmd">nums.stream().filter(n -&gt; n &gt; 2).toList();</code><span class="desc">A stream pipeline keeps matching items. toList() needs Java 16 or newer.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="try { } catch (Exception e) { }"><code class="cmd">try { } catch (Exception e) { }</code><span class="desc">Catches an error. A finally block runs whatever happens.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="throw new IllegalArgumentException(&quot;bad&quot;);"><code class="cmd">throw new IllegalArgumentException(&quot;bad&quot;);</code><span class="desc">Raises an error on purpose, with a message that explains it.</span><span class="tap">Tap to copy</span></button>
+<button class="card" type="button" data-cmd="try (var r = new FileReader(&quot;a.txt&quot;)) { }"><code class="cmd">try (var r = new FileReader(&quot;a.txt&quot;)) { }</code><span class="desc">Try-with-resources closes the file for you, even when something fails.</span><span class="tap">Tap to copy</span></button>
+</div>
+</section>
+<section class="quiz" id="quiz" aria-labelledby="h-quiz">
+<h2 id="h-quiz">Quick Quiz</h2>
+<div class="quiz-box" id="quiz-body" aria-live="polite"><p class="quiz-lead">Turn on JavaScript to take the quiz.</p></div>
+</section>
+<section class="downloads" aria-labelledby="h-dl">
+<h2 id="h-dl">Download the pages</h2>
+<p class="quiz-lead">Each page as a PNG, 1080 x 1350.</p>
+<ul class="dl-list">
+<li><a href="page1.png" download>page1.png</a></li>
+<li><a href="page2.png" download>page2.png</a></li>
+<li><a href="page3.png" download>page3.png</a></li>
+<li><a href="page4.png" download>page4.png</a></li>
+<li><a href="page5.png" download>page5.png</a></li>
+</ul>
+</section>
+</main>
+<footer class="wrap">Cheat Sheet of the Day · Episode 15 · Java · by VR Developments</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
